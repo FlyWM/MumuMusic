@@ -5,7 +5,7 @@
  * FlyWM_
  * GitHub: https://github.com/FlyWM
  * CSDN: https://blog.csdn.net/a844651990
- */
+ **/
 
 #include <QPushButton>
 #include "MuCentralWidget.h"
