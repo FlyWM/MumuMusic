@@ -45,7 +45,7 @@ MuWidgetData::MuWidgetData(MuFramelessHelperPrivate *_d, QWidget *window, QWidge
 MuWidgetData::~MuWidgetData()
 {
     m_window->setMouseTracking(false);
-    m_window->setWindowFlags(m_windowFlags);
+//    m_window->setWindowFlags(m_windowFlags);
     m_window->setAttribute(Qt::WA_Hover, false);
 
     delete m_pRubberBand;

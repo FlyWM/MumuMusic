@@ -21,21 +21,18 @@ public:
     ~MuPopupWidgetButton();
 
     /**
-     * @brief setMainWidget
-     *  设置弹出的widget
+     * @brief setMainWidget 设置弹出的widget
      * @param widget
      */
     void setMainWidget(QWidget *widget);
     /**
-     * @brief setButtonObjectName
-     *  设置按钮 objectname，方便设置样式表
+     * @brief setButtonObjectName 设置按钮 objectname，方便设置样式表
      * @param name
      */
     void setButtonObjectName(const QString &name);
 
     /**
-     * @brief button
-     *  方便设置按钮的一些属性
+     * @brief button 方便设置按钮的一些属性
      * @return
      */
     QPushButton *button() { return m_pButton; }

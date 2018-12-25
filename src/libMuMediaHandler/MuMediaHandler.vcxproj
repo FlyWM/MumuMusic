@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{E3F22558-477B-31C7-9567-727E4417B82B}</ProjectGuid>
+    <ProjectGuid>{2093F915-AB6B-3225-8B2D-83C1EB8FD919}</ProjectGuid>
     <RootNamespace>MuMediaHandler</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
     <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>

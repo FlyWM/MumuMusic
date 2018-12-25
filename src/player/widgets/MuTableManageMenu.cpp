@@ -4,21 +4,36 @@
 #include <QDebug>
 #include <qdrawutil.h>
 #include <QPainter>
+#include <QApplication>
 #include "MuTableManageMenu.h"
 
-MuTableRightButtonMenu::MuTableRightButtonMenu(QWidget *parent)
+QQueue <MuTableRightButtonMenu *> MuTableRightButtonMenu::m_instances;
+MuTableRightButtonMenu::MuTableRightButtonMenu(TableType table, QWidget *parent)
     : MuShadowWindow<QWidget>(false, 10, parent)
+    , m_tableType(table)
 {
+    m_instances.push_back(this);
+    deleteLastOne();
+    qApp->installEventFilter(this);
+    setWindowFlags((Qt::Dialog | this->windowFlags()));
     titleBar()->hide();
     setTitleBarHeight(0);
-//    setModal(false);
     createMainWidget();
     setClientWidget(m_pMenu);
+}
+
+bool MuTableRightButtonMenu::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() == QEvent::MouseButtonPress && watched->objectName() != this->objectName())
+        deleteThisOne();
+
+    return QObject::eventFilter(watched, event);
 }
 
 void MuTableRightButtonMenu::createMainWidget()
 {
     m_pMenu = new QMenu(this);
+    m_pMenu->setObjectName("tableMenu");
     m_pViewCommentsAc = new QAction(tr("View All Comments(1234)"));
     m_pPlayAc = new QAction(tr("Play"));
     m_pNextSongAc = new QAction(tr("Play Next"));
@@ -30,8 +45,8 @@ void MuTableRightButtonMenu::createMainWidget()
     m_pDeleteFromListAc = new QAction(tr("Delete From List"));
     m_pDeleteFromDiskAc = new QAction(tr("Delete From Disk"));
 
-//    switch (m_tableType) {
-//    case LocalTable:
+    switch (m_tableType) {
+    case LocalTable:
         m_pMenu->addAction(m_pViewCommentsAc);
         m_pMenu->addAction(m_pPlayAc);
         m_pMenu->addAction(m_pNextSongAc);
@@ -44,10 +59,28 @@ void MuTableRightButtonMenu::createMainWidget()
         m_pMenu->addSeparator();
         m_pMenu->addAction(m_pDeleteFromListAc);
         m_pMenu->addAction(m_pDeleteFromDiskAc);
-//        break;
-//    default:
-//        break;
-//    }
+        break;
+    }
+}
+
+void MuTableRightButtonMenu::deleteLastOne()
+{
+    if (m_instances.size() > 1) {
+        m_instances.head()->hide();
+        auto menu = m_instances.head();
+        m_instances.pop_front();
+        menu->deleteLater();
+    }
+}
+
+void MuTableRightButtonMenu::deleteThisOne()
+{
+    if (m_instances.size() > 0) {
+        m_instances.head()->hide();
+        auto menu = m_instances.head();
+        m_instances.pop_front();
+        menu->deleteLater();
+    }
 }
 
 MuTableManageMenu::MuTableManageMenu(TableType table, QWidget *parent)

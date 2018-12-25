@@ -611,7 +611,9 @@ bool MuTableView::eventFilter(QObject *o, QEvent *e)
 //        MuTableManageMenu *pDlg = new MuTableManageMenu(MuTableManageMenu::LocalTable);
 //        pDlg->exec(cursor().pos());
         MuTableRightButtonMenu *pDlg = new MuTableRightButtonMenu(this);
-        pDlg->move(cursor().pos());
+        connect(pDlg, &MuTableRightButtonMenu::destroyed, [=] { qDebug() << "des"; repaint(); });
+        pDlg->move((cursor().pos()));
+        qDebug() << cursor().pos() << this->mapFromGlobal(cursor().pos());
         pDlg->show();
     }
     return QTableView::eventFilter(o, e);

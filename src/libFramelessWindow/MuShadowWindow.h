@@ -110,9 +110,9 @@ public:
     }
 
 public:
-    QWidget* rootWidget() const { return m_pShadowWidget; }
+    QWidget *rootWidget() const { return m_pShadowWidget; }
     QWidget *clientWidget() const { return m_pClientWidget; }
-    QLayout* clientLayout() const { return m_pClientLayout; }
+    QLayout *clientLayout() const { return m_pClientLayout; }
     MuTitleBar *titleBar() const { return m_titleBar; }
     QSize oldSize() const { return m_titleBar->oldSize(); }
     void setRubberBandOnMove(bool enable) { m_pHelper->setRubberBandOnMove(enable); }

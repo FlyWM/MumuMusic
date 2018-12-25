@@ -129,6 +129,9 @@
     <ClCompile Include="utils\MuStyleHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="widgets\MuTableManageMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="widgets\MuTableView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -141,13 +144,7 @@
     <ClCompile Include="widgets\MuToolbox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\libFramelessWindow\borderimage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\libFramelessWindow\windwmapi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -227,6 +224,9 @@
     <ClInclude Include="utils\MuStyleHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <QtMoc Include="widgets\MuTableManageMenu.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="widgets\MuTableView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -239,12 +239,6 @@
     <QtMoc Include="widgets\MuToolbox.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClInclude Include="..\libFramelessWindow\borderimage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\libFramelessWindow\windwmapi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="debug\moc_predefs.h.cbt">
@@ -335,6 +329,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resources\images\checked16_c62f2f.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\client-shadow.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resources\images\closeBtn32_515151.png">

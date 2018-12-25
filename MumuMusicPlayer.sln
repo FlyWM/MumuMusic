@@ -1,0 +1,40 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FramelessWindow", "src\libFramelessWindow\FramelessWindow.vcxproj", "{F62E6742-6110-3CCA-ABE5-38BC0A65873C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MumuMusic", "src\player\MumuMusic.vcxproj", "{C23E08E0-854B-3C11-9F4B-94C5E3701768}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F62E6742-6110-3CCA-ABE5-38BC0A65873C} = {F62E6742-6110-3CCA-ABE5-38BC0A65873C}
+		{2093F915-AB6B-3225-8B2D-83C1EB8FD919} = {2093F915-AB6B-3225-8B2D-83C1EB8FD919}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MuMediaHandler", "src\libMuMediaHandler\MuMediaHandler.vcxproj", "{2093F915-AB6B-3225-8B2D-83C1EB8FD919}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F62E6742-6110-3CCA-ABE5-38BC0A65873C}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F62E6742-6110-3CCA-ABE5-38BC0A65873C}.Debug|Win32.Build.0 = Debug|Win32
+		{F62E6742-6110-3CCA-ABE5-38BC0A65873C}.Release|Win32.ActiveCfg = Release|Win32
+		{F62E6742-6110-3CCA-ABE5-38BC0A65873C}.Release|Win32.Build.0 = Release|Win32
+		{C23E08E0-854B-3C11-9F4B-94C5E3701768}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C23E08E0-854B-3C11-9F4B-94C5E3701768}.Debug|Win32.Build.0 = Debug|Win32
+		{C23E08E0-854B-3C11-9F4B-94C5E3701768}.Release|Win32.ActiveCfg = Release|Win32
+		{C23E08E0-854B-3C11-9F4B-94C5E3701768}.Release|Win32.Build.0 = Release|Win32
+		{2093F915-AB6B-3225-8B2D-83C1EB8FD919}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2093F915-AB6B-3225-8B2D-83C1EB8FD919}.Debug|Win32.Build.0 = Debug|Win32
+		{2093F915-AB6B-3225-8B2D-83C1EB8FD919}.Release|Win32.ActiveCfg = Release|Win32
+		{2093F915-AB6B-3225-8B2D-83C1EB8FD919}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		Qt5Version = Qt_5.9.6
+	EndGlobalSection
+EndGlobal

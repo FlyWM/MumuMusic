@@ -1,0 +1,25 @@
+﻿  Generate moc_predefs.h
+  Moc'ing MuCustomWindow.h...
+  Moc'ing MuFramelessHelper.h...
+  Moc'ing MuShadowWidget.h...
+  Moc'ing MuTitleBar.h...
+  Rcc'ing images.qrc...
+  MuCursorPosCalculator.cpp
+  MuCustomWindow.cpp
+  MuFramelessHelper.cpp
+  MuShadowWidget.cpp
+  MuTitleBar.cpp
+  MuWidgetData.cpp
+  MuWinDWMAPI.cpp
+  moc_MuCustomWindow.cpp
+  moc_MuFramelessHelper.cpp
+MuWinDWMAPI.cpp(86): warning C4995: “DwmEnableComposition”: 名称被标记为 #pragma deprecated
+MuWinDWMAPI.cpp(88): warning C4995: “DwmEnableComposition”: 名称被标记为 #pragma deprecated
+  moc_MuShadowWidget.cpp
+MuShadowWidget.cpp(256): warning C4100: “canResize”: 未引用的形参
+  moc_MuTitleBar.cpp
+  qrc_images.cpp
+    正在创建库 ..\..\lib\\FramelessWindowd.lib 和对象 ..\..\lib\\FramelessWindowd.exp
+  FramelessWindow.vcxproj -> E:\myOpenSourcce\MumuMusic\src\libFramelessWindow\..\..\lib\FramelessWindowd.dll
+  FramelessWindow.vcxproj -> ..\..\lib\FramelessWindowd.pdb (Full PDB)
+  已复制         1 个文件。

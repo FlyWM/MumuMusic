@@ -1,5 +1,5 @@
-﻿#include "mucentralwidget.h"
-#include <QPushButton>
+﻿#include <QPushButton>
+#include "MuCentralWidget.h"
 
 MuCentralWidget::MuCentralWidget(QWidget *parent)
     : MuBaseWidget(parent)
