@@ -86,5 +86,14 @@
         <file>images/matchBtn32_2c2c2c.png</file>
         <file>images/matchBtn32_515151.png</file>
         <file>images/client-shadow.png</file>
+        <file>images/viewComments32_515151.png</file>
+        <file>images/menuPlay32_515151.png</file>
+        <file>images/menuPlayNext32_515151.png</file>
+        <file>images/menuAddToList32_515151.png</file>
+        <file>images/menuShare32_515151.png</file>
+        <file>images/menuCopyLink32_515151.png</file>
+        <file>images/menuUpload32_515151.png</file>
+        <file>images/menuOpenFolder32_515151.png</file>
+        <file>images/menuDelete32_515151.png</file>
     </qresource>
 </RCC>

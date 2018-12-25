@@ -14,6 +14,8 @@
 #include <qdrawutil.h>
 #include <QPainter>
 #include <QApplication>
+#include <QWidgetAction>
+#include <QLabel>
 #include "MuTableManageMenu.h"
 
 QQueue <MuTableRightButtonMenu *> MuTableRightButtonMenu::m_instances;
@@ -28,13 +30,21 @@ MuTableRightButtonMenu::MuTableRightButtonMenu(TableType table, QWidget *parent)
     titleBar()->hide();
     setTitleBarHeight(0);
     createMainWidget();
+    setFixedWidth(260);
     setClientWidget(m_pMenu);
+    setObjectName("MuTableRightButtonMenu");
 }
 
 bool MuTableRightButtonMenu::eventFilter(QObject *watched, QEvent *event)
 {
-    if (event->type() == QEvent::MouseButtonPress && watched->objectName() != this->objectName())
+    QString on = this->objectName();
+    if (event->type() == QEvent::MouseButtonPress &&
+            watched->objectName() != m_pMenu->objectName() &&
+            watched->objectName() != this->objectName() &&
+            watched->objectName() != (this->objectName() + "Window")) {
         deleteThisOne();
+    }
+
 
     return QObject::eventFilter(watched, event);
 }
@@ -43,15 +53,17 @@ void MuTableRightButtonMenu::createMainWidget()
 {
     m_pMenu = new QMenu(this);
     m_pMenu->setObjectName("tableMenu");
-    m_pViewCommentsAc = new QAction(tr("View All Comments(1234)"));
-    m_pPlayAc = new QAction(tr("Play"));
-    m_pNextSongAc = new QAction(tr("Play Next"));
-    m_pAddToPlaylistAc = new QAction(tr("Add To Playlist"));
-    m_pShareAc = new QAction(tr("Share"));
-    m_pCopyLkAdAc = new QAction(tr("Copy Link Address"));
-    m_pUpToMyCloudAc = new QAction(tr("Upload To My Cloud"));
-    m_pOpenFolderAc = new QAction(tr("Open Folder"));
-    m_pDeleteFromListAc = new QAction(tr("Delete From List"));
+    m_pMenu->setContentsMargins(5, 5, 5, 5);
+    m_pMenu->setMinimumWidth(240);
+    m_pViewCommentsAc = new QAction(QIcon(QStringLiteral(":/images/viewComments32_515151.png")), tr("View All Comments(1234)"));
+    m_pPlayAc = new QAction(QIcon(QStringLiteral(":/images/menuPlay32_515151.png")), tr("Play"));
+    m_pNextSongAc = new QAction(QIcon(QStringLiteral(":/images/menuPlayNext32_515151.png")), tr("Play Next"));
+    m_pAddToPlaylistAc = new QAction(QIcon(QStringLiteral(":/images/menuAddToList32_515151.png")), tr("Add To Playlist"));
+    m_pShareAc = new QAction(QIcon(QStringLiteral(":/images/menuShare32_515151.png")), tr("Share"));
+    m_pCopyLkAdAc = new QAction(QIcon(QStringLiteral(":/images/menuCopyLink32_515151.png")), tr("Copy Link Address"));
+    m_pUpToMyCloudAc = new QAction(QIcon(QStringLiteral(":/images/menuUpload32_515151.png")), tr("Upload To My Cloud"));
+    m_pOpenFolderAc = new QAction(QIcon(QStringLiteral(":/images/menuOpenFolder32_515151.png")), tr("Open Folder"));
+    m_pDeleteFromListAc = new QAction(QIcon(QStringLiteral(":/images/menuDelete32_515151.png")), tr("Delete From List"));
     m_pDeleteFromDiskAc = new QAction(tr("Delete From Disk"));
 
     switch (m_tableType) {

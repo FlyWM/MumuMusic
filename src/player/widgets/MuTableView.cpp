@@ -617,13 +617,15 @@ void MuTableView::leaveEvent(QEvent *ev)
 bool MuTableView::eventFilter(QObject *o, QEvent *e)
 {
     if (e->type() == QEvent::ContextMenu) {
-//        MuTableManageMenu *pDlg = new MuTableManageMenu(MuTableManageMenu::LocalTable);
-//        pDlg->exec(cursor().pos());
-        MuTableRightButtonMenu *pDlg = new MuTableRightButtonMenu(this);
-        connect(pDlg, &MuTableRightButtonMenu::destroyed, [=] { qDebug() << "des"; repaint(); });
+        MuTableRightButtonMenu *pDlg = new MuTableRightButtonMenu(MuTableRightButtonMenu::LocalTable, this);
         pDlg->move((cursor().pos()));
         qDebug() << cursor().pos() << this->mapFromGlobal(cursor().pos());
         pDlg->show();
+
+//        QAction *ac = new QAction(QIcon(":/images/menuPlay32_515151.png"), "testtesttesttesttesttesttest", this);
+//        QMenu *menu = new QMenu;
+//        menu->addAction(ac);
+//        menu->exec(cursor().pos());
     }
     return QTableView::eventFilter(o, e);
 }

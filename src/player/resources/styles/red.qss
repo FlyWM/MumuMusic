@@ -1,15 +1,11 @@
 ﻿/**
- * 自定义无边框窗体、对话框和提示框并封装成库/测试程序
- *
- * style.qss
- * qss全局文件，设置界面的配色主题等。
+ * MumuMusic
+ * 基于Qt的模仿网易云音乐PC客户端的app
  *
  * FlyWM_
  * GitHub: https://github.com/FlyWM
  * CSDN: https://blog.csdn.net/a844651990
- *
  */
-
 
 
 
@@ -73,18 +69,6 @@ QPushButton#closeButton:hover {
     image: url(:/images/closeBtn32_White.png);
 }
 
-/*QPushButton#minimizeButton:pressed {
-    background: #C8C8C8;
-    image: url(:/images/minimizeBtnBlack_16.png);
-}
-QPushButton#maximizeButton:pressed {
-    background: #C8C8C8;
-    image: url(:/images/restoreBlack_16.png);
-}
-QPushButton#closeButton:pressed {
-    background: #C8C8C8;
-    image: url(:/images/closeBtnBlack_16.png);
-}*/
 QPushButton#changeSkinButton {
     border: none;
     image: url(:/images/skinBtn32_Gray.png);
@@ -135,6 +119,37 @@ FramelessDialog#framelessDialog {
     border-color: green;
 }
 /********************************/
+
+/**
+ *  MuTableRightButtonMenu
+ *  右键菜单
+ */
+QMenu#tableMenu {
+    background-color: #fafafc;
+    border: none;
+}
+QMenu#tableMenu::item {
+    padding: 12px 12px 12px 50px;
+    margin: 0px;
+}
+QMenu#tableMenu::item:selected {
+    background-color: #ededef;
+}
+QMenu#tableMenu::icon {
+    padding: 0px 0px 0px 30px;
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      bottom: -1px;
+      left: -1px;
+}
+QMenu#tableMenu::separator {
+    height: 1px;
+    background: #e6e6e6;
+}
+
+/********************************/
+
 
 /**
  *    MuPlayAddButton

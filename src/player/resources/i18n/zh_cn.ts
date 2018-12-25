@@ -464,52 +464,52 @@
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="87"/>
         <source>View All Comments(1234)</source>
-        <translation type="unfinished"></translation>
+        <translation>查看评论(1234)</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="88"/>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>播放</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="89"/>
         <source>Play Next</source>
-        <translation type="unfinished"></translation>
+        <translation>下一首播放</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="90"/>
         <source>Add To Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>收藏到歌单</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="91"/>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>分享...</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="92"/>
         <source>Copy Link Address</source>
-        <translation type="unfinished"></translation>
+        <translation>复制链接</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="93"/>
         <source>Upload To My Cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>上传到我的音乐云盘</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="94"/>
         <source>Open Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>打开文件所在目录</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="95"/>
         <source>Delete From List</source>
-        <translation type="unfinished"></translation>
+        <translation>从列中中删除</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="96"/>
         <source>Delete From Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>从本地磁盘删除</translation>
     </message>
 </context>
 <context>
@@ -517,52 +517,52 @@
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="22"/>
         <source>View All Comments(1234)</source>
-        <translation type="unfinished"></translation>
+        <translation>查看评论(1234)</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="23"/>
         <source>Play</source>
-        <translation type="unfinished"></translation>
+        <translation>播放</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="24"/>
         <source>Play Next</source>
-        <translation type="unfinished"></translation>
+        <translation>下一首播放</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="25"/>
         <source>Add To Playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>收藏到歌单</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="26"/>
         <source>Share</source>
-        <translation type="unfinished"></translation>
+        <translation>分享...</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="27"/>
         <source>Copy Link Address</source>
-        <translation type="unfinished"></translation>
+        <translation>复制链接</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="28"/>
         <source>Upload To My Cloud</source>
-        <translation type="unfinished"></translation>
+        <translation>上传到我的音乐云盘</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="29"/>
         <source>Open Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>打开文件所在目录</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="30"/>
         <source>Delete From List</source>
-        <translation type="unfinished"></translation>
+        <translation>从列中中删除</translation>
     </message>
     <message>
         <location filename="../../widgets/MuTableManageMenu.cpp" line="31"/>
         <source>Delete From Disk</source>
-        <translation type="unfinished"></translation>
+        <translation>从本地磁盘删除</translation>
     </message>
 </context>
 <context>
