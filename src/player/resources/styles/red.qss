@@ -1,0 +1,1065 @@
+﻿/**
+ * 自定义无边框窗体、对话框和提示框并封装成库/测试程序
+ *
+ * style.qss
+ * qss全局文件，设置界面的配色主题等。
+ *
+ * FlyWM_
+ * GitHub: https://github.com/FlyWM
+ * CSDN: https://blog.csdn.net/a844651990
+ *
+ */
+
+
+
+
+/**
+ *  各个区域之间的分隔线: 1px solid #dcdbdc
+ *  主要红色： #c62f2f
+ *  主窗体背景色： #fafafa
+ *  白色按钮：background-color: white;
+ *          border: 1px solid lightgray;
+ *          border-radius: 5px;
+ *          color: #2c2c2c;
+ *          horver background-color: #f5f5f7
+ */
+
+
+/********** 无边框主窗体 **********/
+QWidget#framelessWindow {
+    background-color: #fafafa;
+/*    border-style: solid;
+    border-width: 1px;
+    border-color: green;*/
+}
+/********************************/
+
+
+/*********** 标题栏 **************/
+QWidget#titleBar {
+    background-color: #c62f2f;
+}
+QPushButton#minimizeButton {
+    border: none;
+    image: url(:/images/minBtn32_Gray.png);
+}
+QPushButton#minimizeButton:hover {
+    image: url(:/images/minBtn32_White.png);
+}
+QPushButton#maximizeButton {
+    border: none;
+    image: url(:/images/maxBtn32_Gray.png);
+}
+QPushButton#maximizeButton:hover {
+    image: url(:/images/maxBtn32_White.png);
+}
+QPushButton#maximizeButton[maximizeProperty=restore] {
+    image: url(:/images/restoreBtn32_Gray.png);
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+QPushButton#maximizeButton[maximizeProperty=restore]:hover {
+    image: url(:/images/restoreBtn32_White.png);
+}
+QPushButton#maximizeButton[maximizeProperty=maximize]:hover {
+    image: url(:/images/maxBtn32_White.png);
+}
+
+QPushButton#closeButton {
+    border: none;
+    image: url(:/images/closeBtn32_Gray.png);
+}
+QPushButton#closeButton:hover {
+    image: url(:/images/closeBtn32_White.png);
+}
+
+/*QPushButton#minimizeButton:pressed {
+    background: #C8C8C8;
+    image: url(:/images/minimizeBtnBlack_16.png);
+}
+QPushButton#maximizeButton:pressed {
+    background: #C8C8C8;
+    image: url(:/images/restoreBlack_16.png);
+}
+QPushButton#closeButton:pressed {
+    background: #C8C8C8;
+    image: url(:/images/closeBtnBlack_16.png);
+}*/
+QPushButton#changeSkinButton {
+    border: none;
+    image: url(:/images/skinBtn32_Gray.png);
+}
+QPushButton#changeSkinButton:hover {
+    image: url(:/images/skinBtn32_White.png);
+}
+QLabel#titleLabel {
+    color: white;
+    font-family: "Microsoft Yahei";
+    font-size: 14pt;
+}
+/********************************/
+
+QWidget#mainCentralWidget {
+    background-color: red;
+}
+
+/**
+ *  中心区域的stackedwidget
+ *
+ */
+QWidget#mainStackedWidget {
+    background-color: transparent;
+}
+/******* 自定义无边框提示框 *******/
+FramelessMessageBox#framelessMessagBox {
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: green;
+}
+QLabel#messageTextLabel {
+    color: white;
+    font-family: "Microsoft Yahei";
+    font-size: 14pt;
+}
+QPushButton#yesButton {
+    background-color: red;
+}
+/********************************/
+
+/******* 自定义无边框对话框 *******/
+FramelessDialog#framelessDialog {
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: green;
+}
+/********************************/
+
+/**
+ *    MuPlayAddButton
+ *
+ */
+QPushButton#playAllButton {
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #c62f2f;
+    image-position: left center;
+    text-align: right;
+    color: white;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-family: "Microsoft Yahei";
+    image: url(:/images/playAllBtn32_White.png);
+}
+QPushButton#addAllToListButton {
+    border: 0px solid;
+    border-left-color: #CD4F39;
+    border-left-width: 1px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #c62f2f;
+    padding: 3px;
+    image: url(:/images/addToPlayingListBtn32_White.png);
+}
+QPushButton#playAllButton:hover, #addAllToListButton:hover {
+    background-color: #b12323;
+}
+/********************************/
+
+/**
+ *     MuDialog
+ *  horizotal line: 1px #dcdbdc
+ *  bottom widget bakcground color: #f5f5f7
+ *  button1 bakcground color: #0C73C2
+ *  button1 hover bakcground color: #1167A8
+ *  button2 bakcground color: #ffffff
+ *  button2 hover bakcground color: #f5f5f7
+ *  button2 font color #3D3D3D
+ */
+QWidget#dlgCentralWidget {
+    border: 1px solid lightgray;
+    background-color: #fafafa;
+}
+QWidget#dlgTitleWidget {
+    border: 0px solid #dcdbdc;
+    border-bottom-width: 1px;
+}
+QWidget#dlgBottomWidget {
+    border: 0px solid #dcdbdc;
+    border-top-width: 1px;
+    background-color: #f5f5f7;
+}
+QLabel#dlgTitleLb {
+    border: none;
+    font-family: "Microsoft Yahei";
+    font-size: 11pt;
+    font-weight: bold;
+    color: #707070;
+}
+QPushButton#dlgCloseBtn {
+    image: url(:/images/closeBtn32_8a8a8a.png);
+    border: none;
+    padding: 6px;
+}
+QPushButton#dlgCloseBtn:hover {
+    image: url(:/images/closeBtn32_515151.png);
+}
+QPushButton#dlgButton1 {
+    border: none;
+    background-color: #0C73C2;
+    border-radius: 5px;
+    color: white;
+    font-family: "Microsoft Yahei";
+    font-size: 11pt;
+}
+QPushButton#dlgButton1:hover {
+    background-color: #1167A8;
+}
+QPushButton#dlgButton2 {
+    border: 1px solid #dcdbdc;
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: #3D3D3D;
+    font-family: "Microsoft Yahei";
+    font-size: 8pt;
+}
+QPushButton#dlgButton2:hover {
+    background-color: #f5f5f7;
+}
+/********************************/
+
+/**
+ * MuTableManageMenu
+ */
+MuTableManageMenu#tableManageMenu {
+/*    border: 1px solid lightgray;*/
+    background-color: #fafafc;
+}
+MuTableManageMenu#tableManageMenu::item {
+    padding: 10px;
+}
+MuTableManageMenu#tableManageMenu::item:selected {
+    border: none;
+    background-color: #ebeced;
+}
+
+
+/************* 左侧管理工具栏 ***************/
+QWidget#mangeWidget, #listItemWidget, #musicMangeScrollAreaWidget {
+    background-color: #f5f5f7;
+}
+QListWidget#musicMangeListWidget {
+    border: none;
+    outline: none;
+    background-color: #f5f5f7;
+}
+QListWidget#musicMangeListWidget::item {
+    background-color: #f5f5f7;
+    border: solid
+}
+QListWidget#musicMangeListWidget::item:hover {
+    background-color: #f5f5f7;
+}
+QListWidget#musicMangeListWidget::item:selected {
+    background-color: #e6e7ea;
+    border-left-width: 4px;
+    border-left-color: #c62f2f;
+}
+QLabel#boxTitleLabel, #toolboxNameLabel {
+    color: #696969;
+    font-family: "Microsoft Yahei";
+    font-size: 9pt;
+    background-color: #f5f5f7;
+}
+QScrollArea#musicMangeScrollArea {
+    border: 0px solid;
+    border-right-width: 1px;
+    border-right-color: #dcdbdc;
+    background-color: #f5f5f7;
+}
+QScrollBar:vertical {
+    border: none;
+    background: #f5f5f7;
+    width: 10px;
+    margin: 0px 0 0px 0;
+}
+QScrollBar::handle:vertical {
+    background: Gainsboro;
+    min-height: 20px;
+    border-radius: 5px;
+    border: none;
+}
+QScrollBar::add-line:vertical {
+    border: 0px solid grey;
+    background: #32CC99;
+    height: 0px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+}
+QScrollBar::sub-line:vertical {
+    border: 0px solid grey;
+    background: #32CC99;
+    height: 0px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+    width: 0px;
+    height: 0px;
+}
+QPushButton#playListTitleButton, #openListButton,
+        #createPLayListButton {
+    border: none;
+}
+QPushButton#playListTitleButton {
+    text-align : left;
+    color: #696969;
+    font-family: "Microsoft Yahei";
+    font-size: 9pt;
+    background-color: #f5f5f7;
+}
+/*QPushButton#openListButton {
+    padding: 3px;
+    image: url(:/images/rightArrow32_LightGray.png);
+}*/
+/*QPushButton#openListButton:hover {
+    image: url(:/images/rightArrow32_Gray.png);
+}*/
+QPushButton#openListButton[mouseEnterPro=false]::!checked {
+    padding: 2px;
+    image: url(:/images/rightArrow32_LightGray.png);
+}
+QPushButton#openListButton[mouseEnterPro=false]::!checked:hover {
+    padding: 2px;
+    image: url(:/images/rightArrow32_Gray.png);
+}
+QPushButton#openListButton[mouseEnterPro=true]::!checked {
+    padding: 2px;
+    image: url(:/images/rightArrow32_Gray.png);
+}
+QPushButton#openListButton[mouseEnterPro=false]::checked {
+    padding: 3px;
+    image: url(:/images/downArrow32_LightGray.png);
+}
+QPushButton#openListButton[mouseEnterPro=false]::checked:hover {
+    padding: 3px;
+    image: url(:/images/downArrow32_Gray.png);
+}
+QPushButton#openListButton[mouseEnterPro=true]::checked {
+    padding: 3px;
+    image: url(:/images/downArrow32_Gray.png);
+}
+QPushButton#createPlayListButton {
+    border: none;
+    image: url(:/images/addPlaylist32_LightGray.png);
+}
+QPushButton#createPlayListButton:hover {
+    image: url(:/images/addPlaylist32_Gray.png);
+}
+/*QPushButton#createPlayListButton {
+    image: url(:/images/addPlaylist32_Gray.png);
+}*/
+
+/* 新建歌单dialog */
+
+
+/********************************/
+
+/*********** 播放状态栏 ***********/
+QWidget#playStatusBar {
+    background-color: #f5f5f7;
+    border: 0px solid;
+    border-top-width: 1px;
+    border-top-color: lightgray;
+}
+QPushButton#preSongBtn, #nextSongBtn {
+    background-color: #e83c3c;
+    border: none;
+    border-radius: 19px;
+}
+QPushButton#playBtn {
+    background-color: #e83c3c;
+    border: none;
+    border-radius: 21px;
+}
+QPushButton#preSongBtn:hover, #nextSongBtn:hover, #playBtn:hover {
+    background-color: #c62f2f;
+}
+QPushButton#preSongBtn {
+    padding: 9px;
+    image: url(:/images/preSontBtn48_White.png);
+}
+QPushButton#playBtn {
+    padding: 8px;
+    image: url(:/images/playBtn48_White.png);
+}
+QPushButton#playBtn::checked {
+    padding: 8px;
+    image: url(:/images/pauseBtn48_White.png);
+}
+QPushButton#nextSongBtn {
+    padding: 9px;
+    image: url(:/images/nextSongBtn48_White.png);
+}
+
+QLabel#curTimeLb, #sumTimeLb {
+    color: #4A4A4A;
+    font-family: "Microsoft Yahei";
+    font-size: 8pt;
+}
+
+/* 一定要先设置groove，不然handle的很多效果将没有*/
+QSlider#playSlider::groove:horizontal {
+    border: none;
+    height: 6px;
+    border-radius: 3px;
+    background: lightgray;
+}
+QSlider#playSlider::handle:horizontal {
+    border: none;
+    margin: -5px 0px; /* 上下边距和左右边距*/
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background: #e83c3c;
+    border-image: url(:/images/playPbHandle16_White.png);
+}
+/*划过部分*/
+QSlider#playSlider::sub-page:horizontal {
+    background: #e83c3c;
+    height: 4px;
+    border-radius: 3px;
+}
+/*未划过部分*/
+QSlider#playSlider::add-page:horizontal {
+    background: lightgray;
+    height: 4px;
+    border-radius: 3px;
+}
+
+QPushButton#voiceBtn[valRangePro=mute] {
+    padding: 5px;
+    border: none;
+    image: url(:/images/voiceMute32_Gray.png);
+}
+QPushButton#voiceBtn[valRangePro=low] {
+    padding: 5px;
+    border: none;
+    image: url(:/images/voiceLow32_Gray.png);
+}
+QPushButton#voiceBtn[valRangePro=medium] {
+    padding: 5px;
+    border: none;
+    image: url(:/images/voiceMedium32_Gray.png);
+}
+QPushButton#voiceBtn[valRangePro=high] {
+    padding: 5px;
+    border: none;
+    image: url(:/images/voiceHigh32_Gray.png);
+}
+
+/* 一定要先设置groove，不然handle的很多效果将没有*/
+QSlider#voiceSlider::groove:horizontal {
+    border: none;
+    height: 6px;
+    border-radius: 2px;
+    background: lightgray;
+}
+QSlider#voiceSlider[mouseEnterPro=false]::handle:horizontal {
+    border: none;
+    margin: 3px -3px; /* 上下边距和左右边距*/
+    width: 0px;
+    height: 0px;
+    background: lightgray;
+/*    border-image: url(:/images/voiceMute32_Gray.png);*/
+}
+QSlider#voiceSlider[mouseEnterPro=true]::handle:horizontal {
+    border: none;
+    margin: -5px 0px; /* 上下边距和左右边距*/
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background: #e83c3c;
+    border-image: url(:/images/playPbHandle16_White.png);
+}
+/*划过部分*/
+QSlider#voiceSlider::sub-page::groove:horizontal {
+    background: #e83c3c;
+    height: 6px;
+    border-radius: 2px;
+}
+/*未划过部分*/
+QSlider#voiceSlider::add-page::groove:horizontal {
+    background: lightgray;
+    height: 6px;
+    border-radius: 2px;
+}
+
+QPushButton#playOrderBtn[playOrderPro=listRepeat] {
+    border: none;
+    padding: 5px;
+    image: url(:/images/listRepeat32_Gray.png);
+}
+QPushButton#playOrderBtn[playOrderPro=listRepeat]:hover {
+    border: none;
+    image: url(:/images/listRepeat32_DarkGray.png);
+}
+QPushButton#playOrderBtn[playOrderPro=singleRepeat] {
+    border: none;
+    padding: 5px;
+    image: url(:/images/singleRepeat32_Gray.png);
+}
+QPushButton#playOrderBtn[playOrderPro=singleRepeat]:hover {
+    border: none;
+    image: url(:/images/singleRepeat32_DarkGray.png);
+}
+QPushButton#playOrderBtn[playOrderPro=randomPlay] {
+    border: none;
+    padding: 5px;
+    image: url(:/images/randomPlay32_Gray.png);
+}
+QPushButton#playOrderBtn[playOrderPro=randomPlay]:hover {
+    border: none;
+    image: url(:/images/randomPlay32_DarkGray.png);
+}
+QPushButton#playOrderBtn[playOrderPro=oderPlay] {
+    border: none;
+    padding: 4px;
+    image: url(:/images/orderPlay32_Gray.png);
+}
+QPushButton#playOrderBtn[playOrderPro=oderPlay]:hover {
+    border: none;
+    image: url(:/images/orderPlay32_DarkGray.png);
+}
+
+QPushButton#lyricsBtn {
+    border: 1px solid gray;
+    color: gray;
+}
+QPushButton#lyricsBtn:hover {
+    border: 1px solid black;
+    color: black;
+}
+QPushButton#lyricsBtn::checked {
+    border: 1px solid gray;
+    color: white;
+    background: gray;
+}
+QPushButton#lyricsBtn::checked:hover {
+    border: 1px solid gray;
+    color: gray;
+    background: white;
+}
+QPushButton#openListBtn {
+    image-position: left center;
+    text-align: right;
+    padding-right: 10px;
+    image: url(:/images/openListBtn32_Gray.png);
+    border: 1px solid #EDEDED;
+    border-radius: 13px;
+    background-color: #EDEDED;
+    font-family: "Microsoft Yahei";
+    color: #636363;
+}
+QPushButton#openListBtn:hover {
+    image: url(:/images/openListBtn32_DarkGray.png);
+}
+/********************************/
+
+/*********** 本地歌曲区域 ****************/
+QWidget#localTitleBarWidget {
+    border: 0px solid #dcdbdc;
+    border-bottom-width: 1px;
+}
+QLabel#localNtMusicLb {
+    font-family: "Microsoft Yahei";
+    font-size: 14pt;
+    color: "#3D3D3D";
+}
+QLabel#localSongsNbLb, #localUpdatingNtvLb {
+    font-family: "Microsoft Yahei";
+    color: "#696969";
+}
+
+QPushButton#localSelectFolderBtn {
+    font-family: "Microsoft Yahei";
+    text-align: bottom;
+    border: none;
+    color: "#336cad";
+}
+QPushButton#localSelectFolderBtn:hover {
+    border: none;
+    color: "#254e7e";
+}
+QPushButton#localListBtn {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    image: url(:/images/list32_8a8a8a.png);
+    padding: 3px;
+}
+QPushButton#localListBtn:hover {
+    background-color: #ebeced;
+    image: url(:/images/list32_515151.png);
+}
+QPushButton#localListBtn:checked {
+    background-color: #7c7d85;
+    image: url(:/images/list32_ffffff.png);
+}
+
+QPushButton#localArtistBtn {
+    border: 0px solid lightgray;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    image: url(:/images/singer32_8a8a8a.png);
+    padding: 4px
+}
+QPushButton#localArtistBtn:hover {
+    background-color: #ebeced;
+    image: url(:/images/singer32_515151.png);
+}
+QPushButton#localArtistBtn:checked {
+    background-color: #7c7d85;
+    image: url(:/images/singer32_ffffff.png);
+}
+
+QPushButton#localAlbumBtn {
+    border: 0px solid lightgray;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    image: url(:/images/Album32_8a8a8a.png);
+    padding: 4px;
+}
+QPushButton#localAlbumBtn:hover {
+    background-color: #ebeced;
+    image: url(:/images/Album32_515151.png);
+}
+QPushButton#localAlbumBtn:checked {
+    background-color: #7c7d85;
+    image: url(:/images/Album32_ffffff.png);
+}
+
+QPushButton#localFolderBtn {
+    border: 1px solid lightgray;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    image: url(:/images/folder32_8a8a8a.png);
+    padding: 4px;
+}
+QPushButton#localFolderBtn:hover {
+    background-color: #ebeced;
+    image: url(:/images/folder32_515151.png);
+}
+QPushButton#localFolderBtn:checked {
+    background-color: #7c7d85;
+    image: url(:/images/folder32_ffffff.png);
+}
+
+QPushButton#localListBtn, #localArtistBtn, #localAlbumBtn, #localFolderBtn {
+    background-color: white;
+}
+
+QPushButton#localSelectMusicFolderBtn {
+    border: none;
+    background-color: #0C73C2;
+    border-radius: 5px;
+    color: white;
+    font-family: "Microsoft Yahei";
+    font-size: 12pt;
+}
+QPushButton#localSelectMusicFolderBtn:hover {
+    background-color: #1167A8;
+}
+
+QLabel#localAddNativeMusciLb {
+    font-family: "Microsoft Yahei";
+    font-size: 11pt;
+    font-weight: bold;
+}
+QLabel#localShareLb {
+    font-family: "Microsoft Yahei";
+    color: #696969;
+}
+/**
+ *   选择本地音乐文件夹 dialog
+ *  title font color: #696969
+ *  checkbox font color: #555555
+ *  checkbox border color: #dcdbdc
+ */
+QLabel#snmwTitleLb {
+    border: none;
+    font-family: "Microsoft Yahei";
+    font-size: 9pt;
+    color: #696969;
+}
+QCheckBox#snmwMyMusicCb, #snmwDownloadCb, #snmwWMPCb, #snmwiTunesCb, #snmwPathCb, #ntvSelectedPathItem {
+    font-family: "Microsoft Yahei";
+    font-size: 9pt;
+    color: #555555;
+}
+QCheckBox#snmwMyMusicCb::indicator, #snmwDownloadCb::indicator,
+        #snmwWMPCb::indicator, #snmwiTunesCb::indicator,
+        #snmwPathCb::indicator, #ntvSelectedPathItem::indicator {
+    border: 1px solid #dcdbdc;
+    width: 18px;
+    height: 18px;
+}
+QCheckBox#snmwMyMusicCb::indicator:checked, #snmwDownloadCb::indicator:checked,
+        #snmwWMPCb::indicator:checked, #snmwiTunesCb::indicator:checked,
+        #snmwPathCb::indicator:checked, #ntvSelectedPathItem::indicator:checked {
+    image: url(:/images/checked16_c62f2f.png);
+}
+
+QScrollArea#localTableScrollArea {
+    border: none;
+}
+QWidget#localMusicTableAreaWidget {
+    background-color: red;
+}
+
+/**
+ * 更新或者匹配本地音乐状态栏
+ */
+QProgressBar#matchNtvMusicProgressBar {
+    border: none;
+    border-radius: 2px;
+    background-color: #f0f0f0;
+}
+QProgressBar#matchNtvMusicProgressBar::chunk {
+    background-color: #c62f2f;
+}
+
+/**
+ *  选择的本地文件夹目录列表
+ *
+ */
+QScrollArea#snmScrollArea {
+    border: none;
+    background-color: transparent;
+}
+QWidget#scrollAreaWidgetContents {
+    background-color: transparent;
+}
+
+QPushButton#localMatchBtn {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    color: #515151;
+    font-family: "Microsoft Yahei";
+    image-position: left center;
+    text-align: right;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    image: url(:/images/matchBtn32_515151.png);
+}
+
+QPushButton#localMatchBtn:hover {
+    background-color: #f5f5f7;
+    image: url(:/images/matchBtn32_2c2c2c.png);
+}
+
+QListView#localThumbListView {
+    border: none;
+    background-color: transparent;
+}
+
+QWidget#localThumbWidget {
+    border: 0px solid lightgray;
+    border-right-width: 1px;
+}
+
+QLineEdit#localThumbSearchBox {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    padding-left: 10px;
+    font-family: "Microsoft Yahei";
+}
+
+QWidget#localMusicTableViewArea {
+/*    background-color: red;*/
+}
+
+/********************************/
+
+/************歌单详细区域*************/
+QPushButton#playAllBtn {
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: #c62f2f;
+    image-position: left center;
+    text-align: right;
+    color: white;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    image: url(:/images/playAllBtn32_White.png);
+}
+QPushButton#playAllBtn:hover {
+    background-color: #b12323;
+}
+QPushButton#addToPlayingListBtn {
+    border: 0px solid;
+    border-left-color: #CD4F39;
+    border-left-width: 1px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #c62f2f;
+    padding: 3px;
+    image: url(:/images/addToPlayingListBtn32_White.png);
+}
+QPushButton#addToPlayingListBtn:hover {
+    background-color: #b12323;
+}
+/* button-image { #707070 } button-image:hover { #2c2c2c }*/
+QPushButton#collectBtn {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: white;
+    padding: 4px;
+    image-position: left center;
+    text-align: right;
+    color: #2c2c2c;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    image: url(:/images/collectBtn32_Gray.png);
+}
+QPushButton#collectBtn:hover {
+    background-color: #f5f5f7;
+    image: url(:/images/collectBtn32_DarkGray.png);
+}
+QPushButton#shareBtn {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: white;
+    padding: 4px;
+    image-position: left center;
+    text-align: right;
+    color: #2c2c2c;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    image: url(:/images/shareBtn32_Gray.png);
+}
+QPushButton#shareBtn:hover {
+    background-color: #f5f5f7;
+    image: url(:/images/shareBtn32_DarkGray.png);
+}
+QPushButton#downAllBtn {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: white;
+    padding: 4px;
+    image-position: left center;
+    text-align: right;
+    color: #2c2c2c;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    image: url(:/images/download32_Gray.png);
+}
+QPushButton#downAllBtn:hover {
+    background-color: #f5f5f7;
+    image: url(:/images/download32_Black.png);
+}
+
+QPushButton#songsListBtn, #criticismBtn, #collectorsBtn {
+    border: 0px solid;
+    border-bottom-width: 5px;
+    border-bottom-color: transparent;
+    color: #2c2c2c;
+}
+QPushButton#songsListBtn:hover, #criticismBtn:hover, #collectorsBtn:hover {
+    color: black;
+}
+QPushButton#songsListBtn:checked, #criticismBtn:checked, #collectorsBtn:checked {
+    color: #c62f2f;
+    border-bottom-width: 5px;
+    border-bottom-color: #c62f2f;
+}
+
+QLineEdit#searchBoxLE, #localSearchLocalMusicBox {
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 12px;
+    padding-left: 10px;
+    font-family: "Microsoft Yahei";
+}
+
+QWdidget#songsListWidget {
+    background: transparent;
+}
+/**
+  * QHeaderView
+  * 边框颜色：#dcdbdc
+  * hover时背景色：#ebeced
+  */
+QHeaderView {
+    background-color: transparent;
+/*background-color: lightgray;*/
+}
+QHeaderView::section {
+/*    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                        stop:0 #616161, stop: 0.5 #505050,
+                                        stop: 0.6 #434343, stop:1 #656565);*/
+
+    background-color: #fafafa;
+    color: #5B5B5B;
+    padding-left: 15px;
+    padding-right: 15px;
+    image-position: right;
+    border: 0px solid #dcdbdc;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    /*image: url(:/images/sort116_707070.png);*/
+}
+QHeaderView::section:last {
+/*    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                        stop:0 #616161, stop: 0.5 #505050,
+                                        stop: 0.6 #434343, stop:1 #656565);*/
+
+    background-color: transparent;
+    color: #5B5B5B;
+    padding-left: 15px;
+    padding-right: 15px;
+    image-position: right;
+    border: 0px solid #dcdbdc/*#DBDBDB*/;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+/*    image: url(:/images/sort116_707070.png);*/
+}
+QHeaderView::section:checked {
+    background-color: red;
+    color: #A8A8A8;
+    padding-left: 4px;
+    border: 1px solid #6c6c6c;
+}
+/*MuHeaderView::down-arrow {
+    image: url(:/images/sort316_707070.png);
+}*/
+
+MuHeaderView[HoverAndSort="true,0"]::section:hover {
+    background-color: #ebeced;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 0px solid #dcdbdc;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    image: url(:/images/sort116_707070.png);
+}
+MuHeaderView[HoverAndSort="true,1"]::section:hover {
+    background-color: #ebeced;
+    image: url(:/images/sort216_707070.png);
+}
+MuHeaderView[HoverAndSort="true,2"]::section:hover {
+    background-color: #ebeced;
+    image: url(:/images/sort316_707070.png);
+}
+
+MuHeaderView[HoverAndSort="true,0"]::section:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                        stop:0 #ebeced,
+                                        stop: 0.5 #f2f2f3,
+                                        stop:1 #f8f8f9);
+    padding-left: 15px;
+    padding-right: 15px;
+    border: 0px solid #dcdbdc;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-right-width: 1px;
+    image: url(:/images/sort116_707070.png);
+}
+MuHeaderView[HoverAndSort="true,1"]::section:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                        stop:0 #ebeced,
+                                        stop: 0.5 #f2f2f3,
+                                        stop:1 #f8f8f9);
+
+    image: url(:/images/sort216_707070.png);
+}
+MuHeaderView[HoverAndSort="true,2"]::section:pressed {
+    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                        stop:0 #ebeced,
+                                        stop: 0.5 #f2f2f3,
+                                        stop:1 #f8f8f9);
+
+    image: url(:/images/sort316_707070.png);
+}
+MuTableView {
+    border: none;
+    background-color: #fafafa;
+}
+/*QTableView::item {
+    border: none;
+    color: #3B3B3B;
+    padding: 15px;
+}*/
+/*QTableView::item:hover {
+    border: none;
+    color: green;
+    padding: 15px;
+}*/
+MuTableView::item:selected {
+    color: black;
+    background: #e3e3e5;
+    outline: 0px;
+}
+
+/** tableview indexwidget buttons **/
+QPushButton#tableCollectBtn {
+    border: none;
+    padding: 1px;
+    image: url(:/images/tableFavoriteBtn32_b0b0b0.png);
+}
+QPushButton#tableCollectBtn:hover {
+    border: none;
+    image: url(:/images/tableFavoriteBtn32_2c2c2c.png);
+}
+QPushButton#tableCollectBtn:checked {
+    border: none;
+    image: url(:/images/tableFavoriteBtn32_c62f2f.png);
+}
+QPushButton#tableCollectBtn:checked:hover {
+    border: none;
+    image: url(:/images/tableFavoriteBtn32_b12323.png);
+}
+QPushButton#tableDownloadBtn {
+    border: none;
+    padding-bottom: 2px;
+    image: url(:/images/talbleDownloadBtn32_b0b0b0.png);
+}
+QPushButton#tableDownloadBtn:hover {
+    border: none;
+    image: url(:/images/talbleDownloadBtn32_2c2c2c.png);
+}
+QPushButton#tableDownloadBtn:checked {
+    border: none;
+    image: url(:/images/tableDownloadDone32_409ed1.png);
+}
+QScrollArea#playListScrollArea, #nativeMusicScrollArea {
+    background-color: #fafafa;
+    border: none;
+}
+QWidget#localTitleBarWidget, #localMusicPage1, #MuLocalMusicWidget,
+        #localScrollAreaWidgetContents {
+    background-color: #fafafa;
+}
+/********************************/

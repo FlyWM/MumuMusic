@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{416392CD-2836-3E17-851D-9C1E0AE60689}</ProjectGuid>
+    <RootNamespace>MumuMusic</RootNamespace>
+    <Keyword>Qt4VSv1.0</Keyword>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <PlatformToolset>v140</PlatformToolset>
+    <OutputDirectory>..\..\bin\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>MumuMusic</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <PlatformToolset>v140</PlatformToolset>
+    <OutputDirectory>..\..\bin\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>MumuMusic</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MumuMusic</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">MumuMusic</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;..\libFramelessWindow;widgets;ui;utils;test;core;..\libMuMediaHandler\src;$(QTDIR)\include;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtCore;release;$(QTDIR)\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_SQL_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(QTDIR)\lib\qtmain.lib;shell32.lib;E:\projects\private\MumuMusic\lib\FramelessWindow.lib;E:\projects\private\MumuMusic\lib\MuMediaHandler.lib;$(QTDIR)\lib\Qt5Widgets.lib;$(QTDIR)\lib\Qt5Gui.lib;$(QTDIR)\lib\Qt5Concurrent.lib;$(QTDIR)\lib\Qt5Sql.lib;$(QTDIR)\lib\Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\opensslx86\lib;C:\Utils\my_sql\my_sqlx86\lib;C:\Utils\postgresqlx86\pgsql\lib;$(QTDIR)\lib;E:\projects\private\MumuMusic\lib;E:\projects\private\MumuMusic\src\libMuMediaHandler\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\MumuMusic.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_SQL_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <QTDIR>$(QTDIR)</QTDIR>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <Define>UNICODE;_UNICODE;$(Platform);QT_NO_DEBUG;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_SQL_LIB;QT_CORE_LIB</Define>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>$(Configuration)/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <InputFile>%(FullPath)</InputFile>
+      <DynamicSource>output</DynamicSource>
+      <IncludePath>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;$(QTDIR)\mkspecs/$(Platform)-msvc;.;E:/projects/private/MumuMusic/src/libFramelessWindow;./widgets;./ui;./utils;./test;./core;E:/projects/private/MumuMusic/src/libMuMediaHandler/src;$(QTDIR)\include;$(QTDIR)\include/QtWidgets;$(QTDIR)\include/QtGui;$(QTDIR)\include/QtANGLE;$(QTDIR)\include/QtConcurrent;$(QTDIR)\include/QtSql;$(QTDIR)\include/QtCore;D:\vs2015\VC\INCLUDE;D:\vs2015\VC\ATLMFC\INCLUDE;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\ucrt;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\shared;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\um;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\winrt</IncludePath>
+    </QtMoc>
+    <QtRcc>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+      <QTDIR>$(QTDIR)</QTDIR>
+      <InputFile>%(FullPath)</InputFile>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <Compression>default</Compression>
+    </QtRcc>
+    <QtUic>
+      <InputFile>%(FullPath)</InputFile>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QTDIR>$(QTDIR)</QTDIR>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;..\libFramelessWindow;widgets;ui;utils;test;core;..\libMuMediaHandler\src;$(QTDIR)\include;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtConcurrent;$(QTDIR)\include\QtSql;$(QTDIR)\include\QtCore;debug;$(QTDIR)\mkspecs\win32-msvc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_SQL_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(QTDIR)\lib\qtmaind.lib;shell32.lib;E:\projects\private\MumuMusic\lib\FramelessWindowd.lib;E:\projects\private\MumuMusic\lib\MuMediaHandler.lib;$(QTDIR)\lib\Qt5Widgetsd.lib;$(QTDIR)\lib\Qt5Guid.lib;$(QTDIR)\lib\Qt5Concurrentd.lib;$(QTDIR)\lib\Qt5Sqld.lib;$(QTDIR)\lib\Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\opensslx86\lib;C:\Utils\my_sql\my_sqlx86\lib;C:\Utils\postgresqlx86\pgsql\lib;$(QTDIR)\lib;E:\projects\private\MumuMusic\lib;E:\projects\private\MumuMusic\src\libMuMediaHandler\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\MumuMusic.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_SQL_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtRcc>
+      <QTDIR>$(QTDIR)</QTDIR>
+      <InputFile>%(FullPath)</InputFile>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <Compression>default</Compression>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+    <QtMoc>
+      <QTDIR>$(QTDIR)</QTDIR>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <Define>UNICODE;_UNICODE;$(Platform);QT_WIDGETS_LIB;QT_GUI_LIB;QT_CONCURRENT_LIB;QT_SQL_LIB;QT_CORE_LIB</Define>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>$(Configuration)/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <InputFile>%(FullPath)</InputFile>
+      <DynamicSource>output</DynamicSource>
+      <IncludePath>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;$(QTDIR)\mkspecs/$(Platform)-msvc;.;E:/projects/private/MumuMusic/src/libFramelessWindow;./widgets;./ui;./utils;./test;./core;E:/projects/private/MumuMusic/src/libMuMediaHandler/src;$(QTDIR)\include;$(QTDIR)\include/QtWidgets;$(QTDIR)\include/QtGui;$(QTDIR)\include/QtANGLE;$(QTDIR)\include/QtConcurrent;$(QTDIR)\include/QtSql;$(QTDIR)\include/QtCore;D:\vs2015\VC\INCLUDE;D:\vs2015\VC\ATLMFC\INCLUDE;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\ucrt;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\shared;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\um;C:\Program Files (x86)\Windows Kits\10\include\10.0.14393.0\winrt</IncludePath>
+    </QtMoc>
+    <QtUic>
+      <InputFile>%(FullPath)</InputFile>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+      <QTDIR>$(QTDIR)</QTDIR>
+    </QtUic>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="widgets\MuBaseWidget.cpp" />
+    <ClCompile Include="widgets\MuCentralWidget.cpp" />
+    <ClCompile Include="utils\MuConversionTool.cpp" />
+    <ClCompile Include="ui\MuCreatePlayListDlgUI.cpp" />
+    <ClCompile Include="core\MuDBManager.cpp" />
+    <ClCompile Include="ui\MuDialogUI.cpp" />
+    <ClCompile Include="utils\MuImageHandler.cpp" />
+    <ClCompile Include="widgets\MuListView.cpp" />
+    <ClCompile Include="widgets\MuListViewItemDelegate.cpp" />
+    <ClCompile Include="widgets\MuListWidgetItem.cpp" />
+    <ClCompile Include="ui\MuLocalMusicDetailUI.cpp" />
+    <ClCompile Include="ui\MuLocalMusicTableAreaUI.cpp" />
+    <ClCompile Include="ui\MuLocalMusicWidgetUI.cpp" />
+    <ClCompile Include="widgets\MuMainWindow.cpp" />
+    <ClCompile Include="widgets\MuMusicMangeWidget.cpp" />
+    <ClCompile Include="ui\MuPlayListMainWidgetUI.cpp" />
+    <ClCompile Include="widgets\MuPlayStatusBar.cpp" />
+    <ClCompile Include="ui\MuPlayStatusBarUI.cpp" />
+    <ClCompile Include="widgets\MuPopupWidgetButton.cpp" />
+    <ClCompile Include="widgets\MuScrollArea.cpp" />
+    <ClCompile Include="ui\MuSelectLocalMusicWidgetUI.cpp" />
+    <ClCompile Include="widgets\MuShadowWidget.cpp" />
+    <ClCompile Include="widgets\MuSmallControls.cpp" />
+    <ClCompile Include="utils\MuStyleHelper.cpp" />
+    <ClCompile Include="widgets\MuTableView.cpp" />
+    <ClCompile Include="widgets\MuTableViewHelper.cpp" />
+    <ClCompile Include="test\MuTestMainWidget.cpp" />
+    <ClCompile Include="widgets\MuToolbox.cpp" />
+    <ClCompile Include="..\libFramelessWindow\borderimage.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\libFramelessWindow\windwmapi.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="widgets\MuBaseWidget.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuCentralWidget.h">
+    </QtMoc>
+    <QtMoc Include="utils\MuConversionTool.h">
+    </QtMoc>
+    <QtMoc Include="ui\MuCreatePlayListDlgUI.h">
+    </QtMoc>
+    <QtMoc Include="core\MuDBManager.h">
+    </QtMoc>
+    <QtMoc Include="ui\MuDialogUI.h">
+    </QtMoc>
+    <ClInclude Include="MuGlobal.h" />
+    <QtMoc Include="utils\MuImageHandler.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuListView.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuListViewItemDelegate.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuListWidgetItem.h">
+    </QtMoc>
+    <QtMoc Include="ui\MuLocalMusicDetailUI.h">
+    </QtMoc>
+    <QtMoc Include="ui\MuLocalMusicTableAreaUI.h">
+    </QtMoc>
+    <QtMoc Include="ui\MuLocalMusicWidgetUI.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuMainWindow.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuMusicMangeWidget.h">
+    </QtMoc>
+    <QtMoc Include="ui\MuPlayListMainWidgetUI.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuPlayStatusBar.h">
+    </QtMoc>
+    <QtMoc Include="ui\MuPlayStatusBarUI.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuPopupWidgetButton.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuScrollArea.h">
+    </QtMoc>
+    <QtMoc Include="ui\MuSelectLocalMusicWidgetUI.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuShadowWidget.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuSmallControls.h">
+    </QtMoc>
+    <ClInclude Include="utils\MuStyleHelper.h" />
+    <QtMoc Include="widgets\MuTableView.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuTableViewHelper.h">
+    </QtMoc>
+    <QtMoc Include="test\MuTestMainWidget.h">
+    </QtMoc>
+    <QtMoc Include="widgets\MuToolbox.h">
+    </QtMoc>
+    <ClInclude Include="..\libFramelessWindow\borderimage.h" />
+    <ClInclude Include="..\libFramelessWindow\windwmapi.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;debug\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;release\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\moc_predefs.h;%(Outputs)</Outputs>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </CustomBuild>
+    <ClInclude Include="ui_MuCreatePlayListDlgUI.h" />
+    <ClInclude Include="ui_MuDialogUI.h" />
+    <ClInclude Include="ui_MuLocalMusicDetailUI.h" />
+    <ClInclude Include="ui_MuLocalMusicTableAreaUI.h" />
+    <ClInclude Include="ui_MuLocalMusicWidgetUI.h" />
+    <ClInclude Include="ui_MuPlayListMainWidgetUI.h" />
+    <ClInclude Include="ui_MuPlayStatusBarUI.h" />
+    <ClInclude Include="ui_MuSelectLocalMusicWidgetUI.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".\resources\i18n\zh_cn.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="ui\MuCreatePlayListDlgUI.ui">
+    </QtUic>
+    <QtUic Include="ui\MuDialogUI.ui">
+    </QtUic>
+    <QtUic Include="ui\MuLocalMusicDetailUI.ui">
+    </QtUic>
+    <QtUic Include="ui\MuLocalMusicTableAreaUI.ui">
+    </QtUic>
+    <QtUic Include="ui\MuLocalMusicWidgetUI.ui">
+    </QtUic>
+    <QtUic Include="ui\MuPlayListMainWidgetUI.ui">
+    </QtUic>
+    <QtUic Include="ui\MuPlayStatusBarUI.ui">
+    </QtUic>
+    <QtUic Include="ui\MuSelectLocalMusicWidgetUI.ui">
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\Album32_515151.png" />
+    <None Include="resources\images\Album32_8a8a8a.png" />
+    <None Include="resources\images\Album32_ffffff.png" />
+    <None Include="resources\testImages\HotDog.jpg" />
+    <None Include="resources\testImages\PACT.jpg" />
+    <None Include="resources\images\addPlaylist32_Gray.png" />
+    <None Include="resources\images\addPlaylist32_LightGray.png" />
+    <None Include="resources\images\addToPlayingListBtn32_White.png" />
+    <None Include="resources\images\checked16_c62f2f.png" />
+    <None Include="resources\images\closeBtn32_515151.png" />
+    <None Include="resources\images\closeBtn32_8a8a8a.png" />
+    <None Include="resources\images\closeBtn32_Gray.png" />
+    <None Include="resources\images\closeBtn32_White.png" />
+    <None Include="resources\images\collectBtn32_DarkGray.png" />
+    <None Include="resources\images\collectBtn32_Gray.png" />
+    <None Include="resources\images\downArrow32_Gray.png" />
+    <None Include="resources\images\downArrow32_LightGray.png" />
+    <None Include="resources\images\download32_Black.png" />
+    <None Include="resources\images\download32_Gray.png" />
+    <None Include="resources\images\editListInfoBtn32_Gray.png" />
+    <None Include="resources\images\editListInfoBtn32_LightGray.png" />
+    <None Include="resources\images\favoritePlaylist128_White.png" />
+    <None Include="resources\images\favoriteSongsList32_Black.png" />
+    <None Include="resources\images\favoriteSongsList32_Gray.png" />
+    <None Include="resources\images\folder32_515151.png" />
+    <None Include="resources\images\folder32_8a8a8a.png" />
+    <None Include="resources\images\folder32_ffffff.png" />
+    <QtRcc Include="resources\gif.qrc">
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">gif</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">gif</InitFuncName>
+    </QtRcc>
+    <QtRcc Include="resources\i18n.qrc">
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">i18n</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">i18n</InitFuncName>
+    </QtRcc>
+    <QtRcc Include="resources\images.qrc">
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">images</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">images</InitFuncName>
+    </QtRcc>
+    <None Include="resources\testImages\li.jpg" />
+    <None Include="resources\images\list32_515151.png" />
+    <None Include="resources\images\list32_8a8a8a.png" />
+    <None Include="resources\images\list32_ffffff.png" />
+    <None Include="resources\images\listRepeat32_DarkGray.png" />
+    <None Include="resources\images\listRepeat32_Gray.png" />
+    <None Include="resources\images\logo.jpg" />
+    <None Include="resources\testImages\logo.jpg" />
+    <None Include="resources\images\logo.png" />
+    <None Include="resources\images\matchBtn32_2c2c2c.png" />
+    <None Include="resources\images\matchBtn32_515151.png" />
+    <None Include="resources\images\maxBtn32_Gray.png" />
+    <None Include="resources\images\maxBtn32_White.png" />
+    <None Include="resources\images\minBtn32_Gray.png" />
+    <None Include="resources\images\minBtn32_White.png" />
+    <None Include="resources\images\myCollect32_Black.png" />
+    <None Include="resources\images\myCollect32_Gray.png" />
+    <None Include="resources\images\nativeMusic32_Black.png" />
+    <None Include="resources\images\nativeMusic32_LightGray.png" />
+    <None Include="resources\images\nextSongBtn48_White.png" />
+    <None Include="resources\images\openListBtn32_DarkGray.png" />
+    <None Include="resources\images\openListBtn32_Gray.png" />
+    <None Include="resources\images\orderPlay32_DarkGray.png" />
+    <None Include="resources\images\orderPlay32_Gray.png" />
+    <None Include="resources\images\pauseBtn48_White.png" />
+    <None Include="resources\images\playAllBtn32_White.png" />
+    <None Include="resources\images\playBtn48_White.png" />
+    <None Include="resources\images\playPbHandle16_White.png" />
+    <None Include="resources\images\playing32_Red.png" />
+    <None Include="resources\images\preSontBtn48_White.png" />
+    <None Include="resources\images\randomPlay32_DarkGray.png" />
+    <None Include="resources\images\randomPlay32_Gray.png" />
+    <None Include="resources\styles\red.qss" />
+    <None Include="resources\images\restoreBtn32_Gray.png" />
+    <None Include="resources\images\restoreBtn32_White.png" />
+    <None Include="resources\images\rightArrow32_Gray.png" />
+    <None Include="resources\images\rightArrow32_LightGray.png" />
+    <None Include="resources\images\searchAction32_LightGray.png" />
+    <None Include="resources\images\shareBtn32_DarkGray.png" />
+    <None Include="resources\images\shareBtn32_Gray.png" />
+    <None Include="resources\images\singer32_515151.png" />
+    <None Include="resources\images\singer32_8a8a8a.png" />
+    <None Include="resources\images\singer32_ffffff.png" />
+    <None Include="resources\images\singleRepeat32_DarkGray.png" />
+    <None Include="resources\images\singleRepeat32_Gray.png" />
+    <None Include="resources\images\skinBtn32_Gray.png" />
+    <None Include="resources\images\skinBtn32_White.png" />
+    <None Include="resources\images\sort116_707070.png" />
+    <None Include="resources\images\sort216_707070.png" />
+    <None Include="resources\images\sort316_707070.png" />
+    <QtRcc Include="resources\styles.qrc">
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">styles</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">styles</InitFuncName>
+    </QtRcc>
+    <None Include="resources\images\tableDownloadDone32_409ed1.png" />
+    <None Include="resources\images\tableFavoriteBtn32_2c2c2c.png" />
+    <None Include="resources\images\tableFavoriteBtn32_b0b0b0.png" />
+    <None Include="resources\images\tableFavoriteBtn32_b12323.png" />
+    <None Include="resources\images\tableFavoriteBtn32_c62f2f.png" />
+    <None Include="resources\images\talbleDownloadBtn32_2c2c2c.png" />
+    <None Include="resources\images\talbleDownloadBtn32_8a8a8a.png" />
+    <None Include="resources\images\talbleDownloadBtn32_b0b0b0.png" />
+    <QtRcc Include="resources\testImgs.qrc">
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">testImgs</InitFuncName>
+      <InitFuncName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">testImgs</InitFuncName>
+    </QtRcc>
+    <None Include="resources\images\toPlay32_Red.png" />
+    <None Include="resources\gif\updating.gif" />
+    <None Include="resources\images\voiceHigh32_Gray.png" />
+    <None Include="resources\images\voiceLow32_Gray.png" />
+    <None Include="resources\images\voiceMedium32_Gray.png" />
+    <None Include="resources\images\voiceMute32_Gray.png" />
+    <None Include="resources\testImages\yang.jpg" />
+    <None Include="resources\i18n\zh_cn.qm" />
+    <None Include="resources\testImages\zhang.jpg" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" Qt5Version_x0020_Win32="Qt_5.9.6" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,5 @@
+*.cpp linguist-language=c++
+
+*.pro linguist-language=Qt
+
+*.pri linguist-language=Qt

@@ -1,0 +1,611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts;xlf</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Translation Files">
+      <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
+      <Extensions>ts;xlf</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="widgets\MuBaseWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuCentralWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\MuConversionTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\MuCreatePlayListDlgUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\MuDBManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\MuDialogUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\MuImageHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuListView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuListViewItemDelegate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuListWidgetItem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\MuLocalMusicDetailUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\MuLocalMusicTableAreaUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\MuLocalMusicWidgetUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuMainWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuMusicMangeWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\MuPlayListMainWidgetUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuPlayStatusBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\MuPlayStatusBarUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuPopupWidgetButton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuScrollArea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\MuSelectLocalMusicWidgetUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuShadowWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuSmallControls.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\MuStyleHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuTableView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuTableViewHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\MuTestMainWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\MuToolbox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libFramelessWindow\borderimage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libFramelessWindow\windwmapi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="widgets\MuBaseWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuCentralWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="utils\MuConversionTool.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\MuCreatePlayListDlgUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="core\MuDBManager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\MuDialogUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="MuGlobal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="utils\MuImageHandler.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuListView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuListViewItemDelegate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuListWidgetItem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\MuLocalMusicDetailUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\MuLocalMusicTableAreaUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\MuLocalMusicWidgetUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuMainWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuMusicMangeWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\MuPlayListMainWidgetUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuPlayStatusBar.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\MuPlayStatusBarUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuPopupWidgetButton.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuScrollArea.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\MuSelectLocalMusicWidgetUI.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuShadowWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuSmallControls.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="utils\MuStyleHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="widgets\MuTableView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuTableViewHelper.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="test\MuTestMainWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="widgets\MuToolbox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\libFramelessWindow\borderimage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libFramelessWindow\windwmapi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <ClInclude Include="ui_MuCreatePlayListDlgUI.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_MuDialogUI.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_MuLocalMusicDetailUI.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_MuLocalMusicTableAreaUI.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_MuLocalMusicWidgetUI.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_MuPlayListMainWidgetUI.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_MuPlayStatusBarUI.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_MuSelectLocalMusicWidgetUI.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".\resources\i18n\zh_cn.ts">
+      <Filter>Translation Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="ui\MuCreatePlayListDlgUI.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\MuDialogUI.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\MuLocalMusicDetailUI.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\MuLocalMusicTableAreaUI.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\MuLocalMusicWidgetUI.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\MuPlayListMainWidgetUI.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\MuPlayStatusBarUI.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\MuSelectLocalMusicWidgetUI.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\images\Album32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\Album32_8a8a8a.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\Album32_ffffff.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\testImages\HotDog.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\testImages\PACT.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\addPlaylist32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\addPlaylist32_LightGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\addToPlayingListBtn32_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\checked16_c62f2f.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\closeBtn32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\closeBtn32_8a8a8a.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\closeBtn32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\closeBtn32_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\collectBtn32_DarkGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\collectBtn32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\downArrow32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\downArrow32_LightGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\download32_Black.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\download32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\editListInfoBtn32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\editListInfoBtn32_LightGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\favoritePlaylist128_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\favoriteSongsList32_Black.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\favoriteSongsList32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\folder32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\folder32_8a8a8a.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\folder32_ffffff.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="resources\gif.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtRcc Include="resources\i18n.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtRcc Include="resources\images.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="resources\testImages\li.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\list32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\list32_8a8a8a.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\list32_ffffff.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\listRepeat32_DarkGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\listRepeat32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\logo.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\testImages\logo.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\logo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\matchBtn32_2c2c2c.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\matchBtn32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\maxBtn32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\maxBtn32_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\minBtn32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\minBtn32_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\myCollect32_Black.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\myCollect32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\nativeMusic32_Black.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\nativeMusic32_LightGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\nextSongBtn48_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\openListBtn32_DarkGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\openListBtn32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\orderPlay32_DarkGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\orderPlay32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\pauseBtn48_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\playAllBtn32_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\playBtn48_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\playPbHandle16_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\playing32_Red.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\preSontBtn48_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\randomPlay32_DarkGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\randomPlay32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\styles\red.qss">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\restoreBtn32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\restoreBtn32_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\rightArrow32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\rightArrow32_LightGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\searchAction32_LightGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\shareBtn32_DarkGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\shareBtn32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\singer32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\singer32_8a8a8a.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\singer32_ffffff.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\singleRepeat32_DarkGray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\singleRepeat32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\skinBtn32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\skinBtn32_White.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\sort116_707070.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\sort216_707070.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\sort316_707070.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="resources\styles.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="resources\images\tableDownloadDone32_409ed1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\tableFavoriteBtn32_2c2c2c.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\tableFavoriteBtn32_b0b0b0.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\tableFavoriteBtn32_b12323.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\tableFavoriteBtn32_c62f2f.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\talbleDownloadBtn32_2c2c2c.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\talbleDownloadBtn32_8a8a8a.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\talbleDownloadBtn32_b0b0b0.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="resources\testImgs.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="resources\images\toPlay32_Red.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\gif\updating.gif">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\voiceHigh32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\voiceLow32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\voiceMedium32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\voiceMute32_Gray.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\testImages\yang.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\i18n\zh_cn.qm">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\testImages\zhang.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
