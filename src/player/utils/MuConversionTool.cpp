@@ -1,4 +1,13 @@
-﻿#include "muconversiontool.h"
+﻿/**
+ * MumuMusic
+ * 基于Qt的模仿网易云音乐PC客户端的app
+ *
+ * FlyWM_
+ * GitHub: https://github.com/FlyWM
+ * CSDN: https://blog.csdn.net/a844651990
+ */
+
+#include "muconversiontool.h"
 
 // 定义GB、MB、KB的计算常量
 static const int GB = 1024 * 1024 * 1024;
