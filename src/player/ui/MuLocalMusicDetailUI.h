@@ -53,6 +53,11 @@ public:
     QLineEdit *searchLocalMusicBox();
     MuTableView *tableView() const;
     void updateTable(const QList<QStringList> &data);
+    /**
+     * @brief updateListView
+     * @param data <(pic,singer, nb),(pic,singer, nb),(pic,singer, nb)>
+     */
+    void updateListView(const QList<QStringList> &data);
 
 signals:
     /**

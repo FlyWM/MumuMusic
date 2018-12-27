@@ -40,3 +40,9 @@ target_wrapper.*
 
 # QtCreator CMake
 CMakeLists.txt.user*
+
+# vs
+src/player/debug
+src/player/release
+src/player/GeneratedFiles
+src/player/Win32

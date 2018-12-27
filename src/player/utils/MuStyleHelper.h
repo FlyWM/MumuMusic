@@ -14,6 +14,7 @@
 #include <QObject>
 #include <QMargins>
 #include <QPushButton>
+#include <QProxyStyle>
 
 namespace MuUtils {
 class MuStyleHelper : public QObject
@@ -42,6 +43,14 @@ public:
     static int mangeWidgetWidth();
     static int playStatusBarHeight();
 
+    // menu
+    static int rightButtonMenuIconSize();
+    static int rightButtonMenuWidth();
+
+    // table view
+    static int tableViewHeaderHeight();
+    static int tableViewItemHeight();
+
     // dialog
     static int dialogTitleHeight();
     static int dialogBottomHeight();
@@ -58,7 +67,7 @@ public:
     static int localRightMargin();
     static int localTitleBarHeight();
 
-    static int tableViewHeaderHeight();
+
 
     // play status bar
     static QSize preSongBtnSize();
@@ -72,6 +81,16 @@ private:
     static QSize m_switchSongBtnSize;
     static QSize m_playSongBtnSize;
 };
+
+class MuMenuIconProxyStyle: public QProxyStyle
+{
+    Q_OBJECT
+public:
+    MuMenuIconProxyStyle(QStyle* style = nullptr);
+    MuMenuIconProxyStyle(const QString& key);
+    virtual int pixelMetric(QStyle::PixelMetric metric, const QStyleOption* option = 0, const QWidget* widget = 0 ) const;
+};
+
 }
 
 

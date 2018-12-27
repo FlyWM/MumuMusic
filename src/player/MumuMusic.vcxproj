@@ -207,6 +207,7 @@
     <ClCompile Include="widgets\MuListViewItemDelegate.cpp" />
     <ClCompile Include="widgets\MuListWidgetItem.cpp" />
     <ClCompile Include="ui\MuLocalMusicDetailUI.cpp" />
+    <ClCompile Include="core\MuLocalMusicManager.cpp" />
     <ClCompile Include="ui\MuLocalMusicTableAreaUI.cpp" />
     <ClCompile Include="ui\MuLocalMusicWidgetUI.cpp" />
     <ClCompile Include="widgets\MuMainWindow.cpp" />
@@ -251,6 +252,10 @@
     </QtMoc>
     <QtMoc Include="ui\MuLocalMusicDetailUI.h">
     </QtMoc>
+    <QtMoc Include="core\MuLocalMusicManager.h">
+    </QtMoc>
+    <QtMoc Include="core\MuLocalMusicManager_p.h">
+    </QtMoc>
     <QtMoc Include="ui\MuLocalMusicTableAreaUI.h">
     </QtMoc>
     <QtMoc Include="ui\MuLocalMusicWidgetUI.h">
@@ -275,7 +280,8 @@
     </QtMoc>
     <QtMoc Include="widgets\MuSmallControls.h">
     </QtMoc>
-    <ClInclude Include="utils\MuStyleHelper.h" />
+    <QtMoc Include="utils\MuStyleHelper.h">
+    </QtMoc>
     <QtMoc Include="widgets\MuTableManageMenu.h">
     </QtMoc>
     <QtMoc Include="widgets\MuTableView.h">
@@ -388,6 +394,14 @@
     <None Include="resources\images\matchBtn32_515151.png" />
     <None Include="resources\images\maxBtn32_Gray.png" />
     <None Include="resources\images\maxBtn32_White.png" />
+    <None Include="resources\images\menuAddToList32_515151.png" />
+    <None Include="resources\images\menuCopyLink32_515151.png" />
+    <None Include="resources\images\menuDelete32_515151.png" />
+    <None Include="resources\images\menuOpenFolder32_515151.png" />
+    <None Include="resources\images\menuPlay32_515151.png" />
+    <None Include="resources\images\menuPlayNext32_515151.png" />
+    <None Include="resources\images\menuShare32_515151.png" />
+    <None Include="resources\images\menuUpload32_515151.png" />
     <None Include="resources\images\minBtn32_Gray.png" />
     <None Include="resources\images\minBtn32_White.png" />
     <None Include="resources\images\myCollect32_Black.png" />
@@ -443,6 +457,7 @@
     </QtRcc>
     <None Include="resources\images\toPlay32_Red.png" />
     <None Include="resources\gif\updating.gif" />
+    <None Include="resources\images\viewComments32_515151.png" />
     <None Include="resources\images\voiceHigh32_Gray.png" />
     <None Include="resources\images\voiceLow32_Gray.png" />
     <None Include="resources\images\voiceMedium32_Gray.png" />

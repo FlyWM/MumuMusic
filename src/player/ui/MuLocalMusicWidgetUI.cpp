@@ -31,93 +31,7 @@
 #include "MuConversionTool.h"
 #include "MuTableView.h"
 #include "MuDBManager.h"
-
-#if 0
-QStringList MuFindNativeMusciFile::m_filters;
-QStringList MuFindNativeMusciFile::m_musciFiles;
-QStringList MuFindNativeMusciFile::m_paths;
-#endif
-
-MuFindNativeMusciFile::MuFindNativeMusciFile(QObject *parent) :
-    QObject(parent)
-{
-}
-
-void MuFindNativeMusciFile::setFilePathsAndFilters(const QStringList paths, const QStringList filters)
-{
-    m_paths = paths;
-    m_filters = filters;
-}
-
-void MuFindNativeMusciFile::startFind()
-{
-    if (m_paths.isEmpty()) {
-        emit Finished();
-        return;
-    }
-
-    QStringList musicFiles;
-    for (auto &file : m_paths) {
-        musicFiles.append(findFiles(file, m_filters));
-    }
-    QList<QStringList> data;
-    for (auto &file : musicFiles) {
-        MuMedia m(MuConversionTool::qstring2stdString(file));
-		
-        if (m.isValid()) {
-            QStringList str;
-            str << file << QString::fromStdString(m.audioDir())
-                << QString::fromStdString(m.audioTitle()) << QString::fromStdString(m.audioAlbum())
-                << QString::fromStdString(m.audioArtist()) << MuConversionTool::mcsToStrFormatTime(m.duration())
-                << "" << QString::number(m.bitRate())
-                << MuConversionTool::bytesToGBMBKB(m.fileSize()) << QString("0");
-            data.append(str);
-            MuDBManager::getInstance().insertData(MuDBManager::LocalMusicTrack, str);
-        }
-    }
-
-    emit FoundFiles(data);
-    emit Finished();
-
-    //    QStringList names = QtConcurrent::mappedReduced(m_paths, findMusicFiles, reduce);
-}
-
-QStringList MuFindNativeMusciFile::findFiles(const QString &startDir, QStringList filters)
-{
-//    qDebug() << startDir;
-    QStringList names;
-    QDir dir(startDir);
-
-    foreach (QString file, dir.entryList(filters, QDir::Files))
-        names += startDir + '/' + file;
-
-    foreach (QString subdir, dir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot))
-        names += findFiles(startDir + '/' + subdir, filters);
-
-    return names;
-}
-
-#if 0
-QStringList MuFindNativeMusciFile::findMusicFiles(const QString &path)
-{
-    qDebug() << QThread::currentThreadId();
-    QStringList names;
-    QDir dir(path);
-    foreach (QString file, dir.entryList(m_filters, QDir::Files))
-        names += path + '/' + file;
-
-    foreach (QString subdir, dir.entryList(QDir::AllDirs | QDir::NoDotAndDotDot))
-        names += findMusicFiles(path + '/' + subdir);
-
-    return names;
-}
-
-void MuFindNativeMusciFile::reduce(QStringList &musicFiles, const QStringList &res)
-{
-    musicFiles.append(res);
-}
-#endif
-
+#include "MuLocalMusicManager.h"
 
 MuLocalMusicWidget::MuLocalMusicWidget(QWidget *parent) :
     QWidget(parent),
@@ -129,11 +43,11 @@ MuLocalMusicWidget::MuLocalMusicWidget(QWidget *parent) :
     ui->setupUi(this);
     ui->localUpdatingWidget->setVisible(false);
     ui->stackedWidget->setCurrentIndex(0);
-    QButtonGroup *pBtnGroup = new QButtonGroup(this);
-    pBtnGroup->addButton(ui->localListBtn, 0);
-    pBtnGroup->addButton(ui->localArtistBtn, 1);
-    pBtnGroup->addButton(ui->localAlbumBtn, 2);
-    pBtnGroup->addButton(ui->localFolderBtn, 3);
+    m_pBtnGroup = new QButtonGroup(this);
+    m_pBtnGroup->addButton(ui->localListBtn, 0);
+    m_pBtnGroup->addButton(ui->localArtistBtn, 1);
+    m_pBtnGroup->addButton(ui->localAlbumBtn, 2);
+    m_pBtnGroup->addButton(ui->localFolderBtn, 3);
     QSize buttonSize = MuUtils::MuStyleHelper::localTabButtonSize();
     ui->localListBtn->setFixedSize(buttonSize);
     ui->localArtistBtn->setFixedSize(buttonSize);
@@ -164,15 +78,16 @@ MuLocalMusicWidget::MuLocalMusicWidget(QWidget *parent) :
     connect(ui->localSelectFolderBtn, &QPushButton::clicked, m_pDlg, &MuDialogUI::show);
     connect(ui->localSelectMusicFolderBtn, &QPushButton::clicked, m_pDlg, &MuDialogUI::show);
     connect(ui->localMusicDetailWidget, &MuLocalMusicDetailUI::EnableScrollAreaBar, this, &MuLocalMusicWidget::EnableScrollAreaBar);
-    connect(pBtnGroup, SIGNAL(buttonClicked(int)), SLOT(onGroupButtonClicked(int)));
+    connect(m_pBtnGroup, SIGNAL(buttonToggled(int, bool)), SLOT(onGroupButtonToggled(int, bool)));
     connect(ui->localMusicDetailWidget, &MuLocalMusicDetailUI::TableRowCount, [=](int rowCnt) {
         ui->localSongsNbLb->setText(QString::number(rowCnt) + tr("songs,"));
         if (rowCnt > 0) {
             m_nLocalSongsNb = rowCnt;
-            pBtnGroup->button(0)->setChecked(true);
-            emit pBtnGroup->buttonClicked(0);
+            m_pBtnGroup->button(0)->setChecked(true);
         }
     });
+
+    connect(&m_lmm, &MuLocalMusicManager::UpdateDone, this, &MuLocalMusicWidget::onUpdateDone);
 
     initTableView();
 }
@@ -211,7 +126,6 @@ void MuLocalMusicWidget::adjustRightMargin(bool aboutToShowBar)
 void MuLocalMusicWidget::resizeEvent(QResizeEvent *e)
 {
     Q_UNUSED(e)
-//    qDebug() << "e->size: " << e->size();
 }
 
 void MuLocalMusicWidget::showEvent(QShowEvent *e)
@@ -237,62 +151,69 @@ void MuLocalMusicWidget::onAddFolderBtnClicked()
 void MuLocalMusicWidget::onOkBtnClicked()
 {
     QStringList paths = m_pSelectMainWidget->getItemsContent();
+    // show updating gif
     ui->localUpdatingWidget->setVisible(true);
     ui->localUpdatingWidget->startUpdating();
-
     m_pDlg->close();
 
-    MuFindNativeMusciFile *pFindFile = new MuFindNativeMusciFile();
-    QThread *pThread = new QThread();
-    pFindFile->moveToThread(pThread);
-    pFindFile->setFilePathsAndFilters(paths, QStringList() << "*.mp3" << "*.wma" << "*.aac");
-
-    connect(pThread, &QThread::started, pFindFile, &MuFindNativeMusciFile::startFind);
-    connect(pFindFile, &MuFindNativeMusciFile::Finished, pFindFile, &MuFindNativeMusciFile::deleteLater);
-    connect(pFindFile, &MuFindNativeMusciFile::Finished, pThread, &QThread::quit);
-    connect(pThread, &QThread::finished, pThread, &QThread::deleteLater);
-    connect(pFindFile, &MuFindNativeMusciFile::FoundFiles, this, &MuLocalMusicWidget::onFoundFiles);
-
-    pThread->start();
+    m_lmm.updateLocalMusic(paths);
 }
 
-void MuLocalMusicWidget::onFoundFiles(const QList<QStringList> &data)
-{
-//    ui->localMusicDetailWidget->updateTable(data);
-    ui->localMusicDetailWidget->tableView()->updateData();
-    ui->localUpdatingWidget->stopUpdate();
-    ui->localUpdatingWidget->showFinished();
-    m_nLocalSongsNb += data.size();
-    ui->localSongsNbLb->setText(QString::number(m_nLocalSongsNb) + tr("Songs,"));
-}
-
-void MuLocalMusicWidget::onGroupButtonClicked(int index)
+void MuLocalMusicWidget::onGroupButtonToggled(int index, bool checked)
 {
     if (m_nLocalSongsNb == 0)
         return;
 
-    ui->stackedWidget->setCurrentIndex(1);
-    m_curButton = static_cast<Mu::LocalMusicButton>(index);
-    ui->localMusicDetailWidget->setCurLocalButton(m_curButton);
+    if (checked) {
+        ui->stackedWidget->setCurrentIndex(1);
+        m_curButton = static_cast<Mu::LocalMusicButton>(index);
+        ui->localMusicDetailWidget->setCurLocalButton(m_curButton);
 
-    if (m_curButton == Mu::ListButton) {
-        ui->localMusicDetailWidget->matchButton()->show();
-        ui->localMusicDetailWidget->thumbWidget()->hide();
-        ui->localMusicDetailWidget->searchLocalMusicBox()->show();
-    } else {
-        ui->localMusicDetailWidget->thumbWidget()->show();
-        ui->localMusicDetailWidget->matchButton()->hide();
-        ui->localMusicDetailWidget->searchLocalMusicBox()->hide();
+        if (m_curButton == Mu::ListButton) {
+            ui->localMusicDetailWidget->matchButton()->show();
+            ui->localMusicDetailWidget->thumbWidget()->hide();
+            ui->localMusicDetailWidget->searchLocalMusicBox()->show();
+            ui->localMusicDetailWidget->tableView()->setTableType(MuTableView::LocalList);
+        } else if (m_curButton == Mu::ArtistButton) {
+            ui->localMusicDetailWidget->thumbWidget()->show();
+            ui->localMusicDetailWidget->matchButton()->hide();
+            ui->localMusicDetailWidget->searchLocalMusicBox()->hide();
+            ui->localMusicDetailWidget->tableView()->setTableType(MuTableView::LocalArtist);
+        } else {
+            ui->localMusicDetailWidget->thumbWidget()->show();
+            ui->localMusicDetailWidget->matchButton()->hide();
+            ui->localMusicDetailWidget->searchLocalMusicBox()->hide();
+        }
     }
+}
+
+void MuLocalMusicWidget::onUpdateDone()
+{
+    MuTableView *pTable = ui->localMusicDetailWidget->tableView();
+
+    // update table data from the database
+    pTable->updateData();
+
+    // show the finished gif
+    ui->localUpdatingWidget->stopUpdate();
+    ui->localUpdatingWidget->showFinished();
+
+    // set the value of song number label
+    m_nLocalSongsNb = pTable->talbeRowCount();
+    ui->localSongsNbLb->setText(QString::number(m_nLocalSongsNb) + tr("Songs,"));
+
+    m_pBtnGroup->button(0)->setChecked(true);
 }
 
 void MuLocalMusicWidget::initTableView()
 {
     const QStringList headers = { " ",  tr("MusicTitle"), tr("Artist"), tr("Album"), tr("Duration"), tr("Size") };
     MuTableView *pTable = ui->localMusicDetailWidget->tableView();
-    pTable->setModelTable(MuTableView::LocalMusicTable);
+//    pTable->setModelTable(MuTableView::LocalMusicTable);
+    pTable->setTableType(MuTableView::LocalList);
     pTable->setHorizontalHeaderLabels(headers);
     pTable->headerView()->resizeSection(0, 65);
+
     // before call this function, the table must not be empty
     // otherwise, error: "ASSERT: 'visual != -1'"
     pTable->headerView()->setSectionResizeMode(0, QHeaderView::Fixed);

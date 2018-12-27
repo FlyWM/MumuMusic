@@ -73,7 +73,7 @@ MuTitleBar::MuTitleBar(QWidget *parent, QWidget *window, QWidget *shadowContaine
     pLayout->addWidget(m_pMaximizeButton);
     pLayout->addWidget(m_pCloseButton);
     pLayout->setSpacing(5);
-    pLayout->setContentsMargins(20, 0, 20, 0);
+    pLayout->setContentsMargins(20, 0, 10, 0);
 
     setLayout(pLayout);
 

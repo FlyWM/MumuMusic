@@ -87,7 +87,7 @@ private:
 };
 
 
-class MuTableViewItemModel : public QSqlTableModel
+class MuTableViewItemModel : public QSqlQueryModel
 {
     Q_OBJECT
 public:
@@ -108,6 +108,8 @@ public:
     void setColumnCount(const int count);
     void setHeaderLables(const QStringList headerLabels);
     void setDisplayData(const QModelIndex &index, QVariant var);
+
+//    QModelIndex index(int row, int col, int role = Qt::DisplayRole);
 
     static void setEmptyData(bool empty) { m_empty = empty; }
 
@@ -161,6 +163,11 @@ public:
     {
         LocalMusicTable,
     };
+    enum TableType
+    {
+        LocalList,
+        LocalArtist,
+    };
 
 public:
     MuTableView(QWidget *parent = nullptr);
@@ -178,7 +185,11 @@ public:
 
     void setModelTable(SqlTable table);
 
+    void setTableType(TableType type);
+
     void updateData();
+
+    int talbeRowCount() const;
 
 signals:
     void TableDataChanged();

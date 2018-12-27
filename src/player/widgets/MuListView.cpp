@@ -39,7 +39,7 @@ MuListView::MuListView(QWidget *parent)
     this->setItemDelegate(pItemDelegate);
 }
 
-void MuListView::updateData(QList<QStringList> data)
+void MuListView::updateData(const QList<QStringList> &data)
 {
     m_pModel->clear();
     if (data.isEmpty())

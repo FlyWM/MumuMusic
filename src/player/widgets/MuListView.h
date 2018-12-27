@@ -19,7 +19,7 @@ class MuListView : public QListView
 public:
     MuListView(QWidget *parent = nullptr);
 
-    void updateData(QList<QStringList> data);
+    void updateData(const QList<QStringList> &data);
 
 private:
     QStandardItemModel *m_pModel;

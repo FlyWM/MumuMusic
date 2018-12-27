@@ -12,6 +12,18 @@
 
 #include <QObject>
 
+class MuDBSql
+{
+public:
+    static QLatin1String sql_ListTable() {
+        return QLatin1String("SELECT dir, title, artist, album, duration, filesize FROM LocalMusicTrack where ignored = 0;");
+    }
+    static QLatin1String sql_ArtistTable() {
+        return QLatin1String();
+    }
+};
+
+
 class MuDataBase;
 class MuDBManager : public QObject
 {
@@ -30,8 +42,10 @@ public:
     }
 
     void initDB();
-    void insertData(DBTable table, const QStringList &data);
+    void insertData(DBTable table, const QList<QStringList> &data);
+    void deleteRow(DBTable table, const int &row);
 
+    QStringList getAllArtists() const;
 
 private:
     explicit MuDBManager(QObject *parent = nullptr);

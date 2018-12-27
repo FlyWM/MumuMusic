@@ -90,6 +90,9 @@
     <ClCompile Include="ui\MuLocalMusicDetailUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="core\MuLocalMusicManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="ui\MuLocalMusicTableAreaUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -185,6 +188,12 @@
     <QtMoc Include="ui\MuLocalMusicDetailUI.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="core\MuLocalMusicManager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="core\MuLocalMusicManager_p.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
     <QtMoc Include="ui\MuLocalMusicTableAreaUI.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -221,9 +230,9 @@
     <QtMoc Include="widgets\MuSmallControls.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <ClInclude Include="utils\MuStyleHelper.h">
+    <QtMoc Include="utils\MuStyleHelper.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
+    </QtMoc>
     <QtMoc Include="widgets\MuTableManageMenu.h">
       <Filter>Header Files</Filter>
     </QtMoc>
@@ -436,6 +445,30 @@
     <None Include="resources\images\maxBtn32_White.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="resources\images\menuAddToList32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\menuCopyLink32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\menuDelete32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\menuOpenFolder32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\menuPlay32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\menuPlayNext32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\menuShare32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\menuUpload32_515151.png">
+      <Filter>Resource Files</Filter>
+    </None>
     <None Include="resources\images\minBtn32_Gray.png">
       <Filter>Resource Files</Filter>
     </None>
@@ -581,6 +614,9 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resources\gif\updating.gif">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\images\viewComments32_515151.png">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resources\images\voiceHigh32_Gray.png">

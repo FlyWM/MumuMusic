@@ -30,10 +30,13 @@ public:
         PlayListTable,
     };
 
-    MuTableRightButtonMenu(TableType table, QWidget *parent = nullptr);
+    MuTableRightButtonMenu(TableType table, int tableRowIndex, QWidget *parent = nullptr);
 
 protected:
     virtual bool eventFilter(QObject *watched, QEvent *event);
+
+private slots:
+    void onActionTriggered(QAction *action);
 
 private:
     void createMainWidget();
@@ -42,6 +45,7 @@ private:
 
 private:
     TableType m_tableType;
+    int m_tableRowIndex;
     QAction *m_pViewCommentsAc;
     QAction *m_pPlayAc;
     QAction *m_pNextSongAc;
@@ -57,51 +61,6 @@ private:
 
 private:
     static QQueue <MuTableRightButtonMenu *> m_instances;
-};
-
-//class MuTableRightButtonMenu : public QMenu
-//{
-//    Q_OBJECT
-
-//public:
-//    MuTableRightButtonMenu(QWidget *parent = nullptr);
-//};
-
-class QAction;
-class QWidgetAction;
-class MuTableManageMenu : public QMenu
-{
-    Q_OBJECT
-
-public:
-    enum TableType
-    {
-        LocalTable,
-        PlayListTable,
-    };
-
-public:
-    MuTableManageMenu(TableType table, QWidget *parent = nullptr);
-
-    virtual void paintEvent(QPaintEvent *e);
-
-protected:
-
-private:
-    void createMainWidget();
-
-private:
-    TableType m_tableType;
-    QAction *m_pViewCommentsAc;
-    QAction *m_pPlayAc;
-    QAction *m_pNextSongAc;
-    QAction *m_pAddToPlaylistAc;
-    QAction *m_pShareAc;
-    QAction *m_pCopyLkAdAc;
-    QAction *m_pUpToMyCloudAc;
-    QAction *m_pOpenFolderAc;
-    QAction *m_pDeleteFromListAc;
-    QAction *m_pDeleteFromDiskAc;
 };
 
 #endif // MUTABLEMANAGEMENU_H

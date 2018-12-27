@@ -14,45 +14,14 @@
 #include <QScrollArea>
 #include "MuBaseWidget.h"
 #include "MuGlobal.h"
-
-class MuFindNativeMusciFile : public QObject
-{
-    Q_OBJECT
-public:
-    MuFindNativeMusciFile(QObject *parent = nullptr);
-
-    void setFilePathsAndFilters(const QStringList paths, const QStringList filters);
-
-signals:
-    void Finished();
-    void FoundFiles(const QList<QStringList> &data);
-
-public slots:
-    void startFind();
-
-
-private:
-#if 0
-    static QStringList findMusicFiles(const QString &path);
-    static void reduce(QStringList &musicFiles, const QStringList &res);
-#endif
-    QStringList findFiles(const QString &startDir, QStringList filters);
-
-private:
-#if 0
-    static QStringList m_paths;
-    static QStringList m_filters;
-    static QStringList m_musciFiles;
-#endif
-    QStringList m_paths;
-    QStringList m_filters;
-};
+#include "MuLocalMusicManager.h"
 
 namespace Ui {
 class MuLocalMusicWidget;
 }
 class MuSelectLocalMusicWidgetUI;
 class MuDialogUI;
+class QButtonGroup;
 class MuLocalMusicWidget : public QWidget
 {
     Q_OBJECT
@@ -80,12 +49,12 @@ signals:
 private slots:
     void onAddFolderBtnClicked();
     void onOkBtnClicked();
+    void onGroupButtonToggled(int index, bool checked);
+
     /**
-     * @brief onFoundFiles 更新本地音乐列表
-     * @param data 表的数据
+     * @brief onUpdateDone select music folder and update completed
      */
-    void onFoundFiles(const QList<QStringList> &data);
-    void onGroupButtonClicked(int index);
+    void onUpdateDone();
 
 private:
     void initTableView();
@@ -95,10 +64,12 @@ private:
 private:
     Ui::MuLocalMusicWidget *ui;
     MuSelectLocalMusicWidgetUI *m_pSelectMainWidget;
+    QButtonGroup *m_pBtnGroup;
     MuDialogUI *m_pDlg;
     QScrollArea *m_pScrollArea;
     int m_nLocalSongsNb;
     Mu::LocalMusicButton m_curButton;
+    MuLocalMusicManager &m_lmm = MuLocalMusicManager::getInstance();
 };
 
 #endif // MULOCALMUSICWIDGET_H

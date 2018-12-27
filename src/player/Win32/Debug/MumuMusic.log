@@ -1,2 +1,25 @@
-﻿  MumuMusic.vcxproj -> E:\myOpenSourcce\MumuMusic\src\player\..\..\bin\MumuMusic.exe
+﻿  Moc'ing ui\MuLocalMusicWidgetUI.h...
+  Moc'ing widgets\MuTableView.h...
+cl : 命令行 warning D9002: 忽略未知选项“-gstabs+”
+cl : 命令行 warning D9002: 忽略未知选项“-gstabs+”
+  moc_MuLocalMusicWidgetUI.cpp
+cl : 命令行 warning D9002: 忽略未知选项“-gstabs+”
+  moc_MuTableView.cpp
+cl : 命令行 warning D9002: 忽略未知选项“-gstabs+”
+  MuDBManager.cpp
+cl : 命令行 warning D9002: 忽略未知选项“-gstabs+”
+  MuLocalMusicManager.cpp
+cl : 命令行 warning D9002: 忽略未知选项“-gstabs+”
+  MuLocalMusicDetailUI.cpp
+cl : 命令行 warning D9002: 忽略未知选项“-gstabs+”
+  MuLocalMusicTableAreaUI.cpp
+cl : 命令行 warning D9002: 忽略未知选项“-gstabs+”
+  MuLocalMusicWidgetUI.cpp
+cl : 命令行 warning D9002: 忽略未知选项“-gstabs+”
+  MuPlayListMainWidgetUI.cpp
+core\MuDBManager.cpp(152): warning C4100: “row”: 未引用的形参
+  MuMainWindow.cpp
+  MuTableManageMenu.cpp
+  MuTableView.cpp
+  MumuMusic.vcxproj -> E:\myOpenSourcce\MumuMusic\src\player\..\..\bin\MumuMusic.exe
   MumuMusic.vcxproj -> ..\..\bin\MumuMusic.pdb (Full PDB)

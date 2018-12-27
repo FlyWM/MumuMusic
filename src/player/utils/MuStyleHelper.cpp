@@ -141,8 +141,13 @@ void MuUtils::MuStyleHelper::scaleChildren(QObject &o)
 QSize MuUtils::MuStyleHelper::mainWindowSize()
 {
     QSize size;
+#ifdef Q_OS_WIN32
+    size.setWidth(MuSmartScaleUI(1022));
+    size.setHeight(MuSmartScaleUI(670));
+#elif defined Q_OS_LINUX
     size.setWidth(MuSmartScaleUI(1022 + 15*2));
     size.setHeight(MuSmartScaleUI(670 + 15*2));
+#endif
 
     return size;
 }
@@ -210,6 +215,20 @@ int MuUtils::MuStyleHelper::mangeWidgetWidth()
 int MuUtils::MuStyleHelper::playStatusBarHeight()
 {
     return MuSmartScaleUI(48);
+}
+
+int MuUtils::MuStyleHelper::rightButtonMenuIconSize()
+{
+    return MuSmartScaleUI(20);
+}
+
+int MuUtils::MuStyleHelper::rightButtonMenuWidth()
+{
+#ifdef Q_OS_WIN32
+    return MuSmartScaleUI(230);
+#elif defined Q_OS_LINUX
+    return MuSmartScaleUI(230 + 15 * 2);
+#endif
 }
 
 int MuUtils::MuStyleHelper::dialogBottomHeight()
@@ -296,6 +315,11 @@ int MuUtils::MuStyleHelper::tableViewHeaderHeight()
     return MuSmartScaleUI(30);
 }
 
+int MuUtils::MuStyleHelper::tableViewItemHeight()
+{
+    return MuSmartScaleUI(30);
+}
+
 QSize MuUtils::MuStyleHelper::preSongBtnSize()
 {
     QSize size;
@@ -353,4 +377,26 @@ void MuUtils::MuStyleHelper::playBarButtonAdjustRadius(QPushButton *preBtn, QPus
                                     QPushButton:hover { \
                                         background-color: #c62f2f; \
                                     } ").arg(nextBtn->width()/2).arg(MuSmartScaleUI(7)));
+    }
+
+MuUtils::MuMenuIconProxyStyle::MuMenuIconProxyStyle(QStyle *style)
+    : QProxyStyle(style)
+{
+
+}
+
+MuUtils::MuMenuIconProxyStyle::MuMenuIconProxyStyle(const QString &key)
+     : QProxyStyle(key)
+{
+
+}
+
+int MuUtils::MuMenuIconProxyStyle::pixelMetric(QStyle::PixelMetric metric, const QStyleOption *option, const QWidget *widget) const
+{
+    switch ( metric ) {
+     case QStyle::PM_SmallIconSize:
+       return MuStyleHelper::rightButtonMenuIconSize(); // here u want pixmaps size i assume
+     default:
+       return QProxyStyle::pixelMetric( metric, option, widget ); // return default values for the rest
+    }
 }

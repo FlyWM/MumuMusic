@@ -102,6 +102,11 @@ void MuLocalMusicDetailUI::updateTable(const QList<QStringList> &data)
     m_pTable->updateData(data);
 }
 
+void MuLocalMusicDetailUI::updateListView(const QList<QStringList> &data)
+{
+    ui->localThumbListView->updateData(data);
+}
+
 void MuLocalMusicDetailUI::resizeEvent(QResizeEvent *e)
 {
     Q_UNUSED(e)

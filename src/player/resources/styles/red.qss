@@ -129,7 +129,7 @@ QMenu#tableMenu {
     border: none;
 }
 QMenu#tableMenu::item {
-    padding: 12px 12px 12px 50px;
+    padding: 7px 12px 7px 50px; /* top right bottom left */
     margin: 0px;
 }
 QMenu#tableMenu::item:selected {
@@ -137,11 +137,11 @@ QMenu#tableMenu::item:selected {
 }
 QMenu#tableMenu::icon {
     padding: 0px 0px 0px 30px;
-      position: absolute;
-      top: -1px;
-      right: -1px;
-      bottom: -1px;
-      left: -1px;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
 }
 QMenu#tableMenu::separator {
     height: 1px;

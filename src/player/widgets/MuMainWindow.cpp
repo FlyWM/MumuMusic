@@ -55,7 +55,7 @@ MuMainWindow::MuMainWindow(QWidget *parent)
 
     QSize windowSize = MuUtils::MuStyleHelper::mainWindowSize();
     int titleSize = MuUtils::MuStyleHelper::titileHeight();
-    setMinimumSize(windowSize);
+    resize(windowSize);
     setTitleBarHeight(titleSize);
     initMainWindow();
 

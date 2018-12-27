@@ -20,11 +20,14 @@
 #include <QMessageBox>
 #include <QSqlQuery>
 #include <QSqlError>
+#include <QDesktopWidget>
 #include "MuGlobal.h"
 #include "MuTableView.h"
 #include "MuStyleHelper.h"
 #include "MuDialogUI.h"
 #include "MuTableManageMenu.h"
+#include "MuMainWindow.h"
+#include "MuDBManager.h"
 
 MuHeaderViewEventFilter::MuHeaderViewEventFilter(QObject *parent) :
     QObject(parent)
@@ -268,7 +271,7 @@ void MuHeaderView::onSectionClicked(const int logicalIndex)
 
 bool MuTableViewItemModel::m_empty = false;
 MuTableViewItemModel::MuTableViewItemModel(QObject *parent)
-    : QSqlTableModel(parent)
+    : QSqlQueryModel(parent)
     , m_nHoverRow(0)
     , m_bHover(false)
     , m_columnCount(0)
@@ -296,8 +299,7 @@ QVariant MuTableViewItemModel::data(const QModelIndex &index, int role) const
     int row = index.row();
     int col = index.column();
 
-    switch (role)
-    {
+    switch (role) {
     case Qt::BackgroundColorRole: {
         if (row == m_nHoverRow)
             return QColor(QStringLiteral("#ebeced"));
@@ -316,8 +318,7 @@ QVariant MuTableViewItemModel::data(const QModelIndex &index, int role) const
         else
             return QVariant(Qt::AlignLeft | Qt::AlignVCenter);
     }
-    case Qt::DisplayRole:
-    {
+    case Qt::DisplayRole: {
         // 重新排序之后行号不会改变
         if (col == 0) {
             if (row >=0 && row <9)
@@ -328,7 +329,7 @@ QVariant MuTableViewItemModel::data(const QModelIndex &index, int role) const
         if (m_empty)
             return QVariant();
 
-        return QSqlTableModel::data(index, Qt::DisplayRole);
+        return QSqlQueryModel::data(index, Qt::DisplayRole);
     }
     default:
         return QVariant();
@@ -342,8 +343,7 @@ QVariant MuTableViewItemModel::headerData(int section, Qt::Orientation orientati
     if (section < 0 || m_headerLabels.isEmpty())
             return QVariant();
 
-    switch (role)
-    {
+    switch (role) {
     case Qt::DisplayRole:
         if (orientation == Qt::Horizontal && section<m_headerLabels.size())
             return m_headerLabels.at(section);
@@ -514,6 +514,7 @@ MuTableView::MuTableView(QWidget *parent)
     m_pHeaderView = new MuHeaderView(Qt::Horizontal, this);
     setHorizontalHeader(m_pHeaderView);
     m_pHeaderView->setCascadingSectionResizes(true);
+    verticalHeader()->setDefaultSectionSize(MuUtils::MuStyleHelper::tableViewItemHeight());
     MuStyleItemDelegate *pDelegate = new MuStyleItemDelegate(this);
     setItemDelegate(pDelegate);
     m_pModel = new MuTableViewItemModel(this);
@@ -569,17 +570,39 @@ void MuTableView::setModelTable(MuTableView::SqlTable table)
 {
     switch (table) {
     case LocalMusicTable:
-        m_pModel->setTable(QLatin1String("LocalMusicTable"));
-        m_pModel->select();
-        qDebug() << m_pModel->rowCount();
+//        m_pModel->setTable(QLatin1String("LocalMusicTable"));
+//        m_pModel->select();
         emit TableRowCount(m_pModel->rowCount());
         break;
     }
 }
 
+void MuTableView::setTableType(MuTableView::TableType type)
+{
+    switch (type) {
+    case LocalList: {
+        m_pModel->setQuery(MuDBSql::sql_ListTable());
+        emit TableRowCount(m_pModel->rowCount());
+        break;
+    }
+    case LocalArtist: {
+        m_pModel->setQuery("select dir, title, artist, album, duration, filesize from LocalMusicTrack where artist = \"Ben l'oncle Soul\";");
+        break;
+    }
+    }
+}
+
 void MuTableView::updateData()
 {
-    qDebug() << "slect" << m_pModel->select();
+//    if (!m_pModel->select()) {
+//        qDebug() << "update failed!";
+
+//    }
+}
+
+int MuTableView::talbeRowCount() const
+{
+    return m_pModel->rowCount();
 }
 
 void MuTableView::onHeaderViewEnter()
@@ -609,7 +632,7 @@ void MuTableView::leaveEvent(QEvent *ev)
     m_pModel->setHoverRow(-1);
     int columnCount = model()->columnCount();
     for (int i=columnCount-1; i>=0; --i) {
-            update(model()->index(m_nCurHoverRow, i));
+        update(model()->index(m_nCurHoverRow, i));
     }
     m_nCurHoverRow = -1;
 }
@@ -617,15 +640,24 @@ void MuTableView::leaveEvent(QEvent *ev)
 bool MuTableView::eventFilter(QObject *o, QEvent *e)
 {
     if (e->type() == QEvent::ContextMenu) {
-        MuTableRightButtonMenu *pDlg = new MuTableRightButtonMenu(MuTableRightButtonMenu::LocalTable, this);
-        pDlg->move((cursor().pos()));
-        qDebug() << cursor().pos() << this->mapFromGlobal(cursor().pos());
-        pDlg->show();
+        QModelIndex index = m_pModel->index(m_nCurHoverRow, 0);
+        QVariant curData = m_pModel->data(index);
+        qDebug() << curData;
+//        qDebug() << QSqlTableModel::data(index, Qt::DisplayRole);
+        if (curData.isValid()) {
+            QDesktopWidget des;
+            MuTableRightButtonMenu *pMenu = new MuTableRightButtonMenu(MuTableRightButtonMenu::LocalTable, m_nCurHoverRow, this);
+            // 如果menu的范围超过了软件窗口竖向的位置，那么menu向上显示
+            // 如果超过了屏幕的宽度，稍微向左移动
+            QPoint pos = cursor().pos();
+            if (pos.y() + pMenu->height() > MuMainWindow::getMainWidgetPos().y() + MuMainWindow::getMainWidgetSize().height())
+                pos.setY(pos.y() - pMenu->height());
+            if (pos.x() + pMenu->width() > des.availableGeometry().width())
+                pos.setX(pos.x() - pMenu->width());
 
-//        QAction *ac = new QAction(QIcon(":/images/menuPlay32_515151.png"), "testtesttesttesttesttesttest", this);
-//        QMenu *menu = new QMenu;
-//        menu->addAction(ac);
-//        menu->exec(cursor().pos());
+            pMenu->move(pos);
+            pMenu->show();
+        }
     }
     return QTableView::eventFilter(o, e);
 }

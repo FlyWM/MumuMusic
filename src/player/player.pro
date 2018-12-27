@@ -47,7 +47,8 @@ SOURCES += \
     ui/MuDialogUI.cpp \
     ui/MuLocalMusicTableAreaUI.cpp \
     core/MuDBManager.cpp \
-    widgets/MuTableManageMenu.cpp
+    widgets/MuTableManageMenu.cpp \
+    core/MuLocalMusicManager.cpp
 
 HEADERS += \
     widgets/MuScrollArea.h \
@@ -79,7 +80,9 @@ HEADERS += \
     MuGlobal.h \
     ui/MuLocalMusicTableAreaUI.h \
     core/MuDBManager.h \
-    widgets/MuTableManageMenu.h
+    widgets/MuTableManageMenu.h \
+    core/MuLocalMusicManager.h \
+    core/MuLocalMusicManager_p.h
 
 RESOURCES += \
     resources/images.qrc \
